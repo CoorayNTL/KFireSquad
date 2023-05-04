@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">K-Fire Squad</string>
+    <string name="cotton">Cotton</string>
+    <string name="rate">Rate</string>
+    <string name="more_details">More-Details</string>
+    <string name="rs_450_0_1kg">Rs.450.0/1Kg</string>
+    <string name="_0712347890">0712347890</string>
+    <string name="contact">Contact</string>
+    <string name="_300_kg">300 Kg</string>
+    <string name="quantity">Quantity</string>
+    <string name="todo">TODO</string>
+    <string name="_15_quintal_best_quality_soyabean_are_available_for_sell_soyabean_are_grown_with_maximum_use_of_organic_fertilizer_soyabean_also_filtered_and_have_very_less_amount_of_wastage_please_feel_free_to_contact_anytime">15 quintal best quality soyabean are available for sell. Soyabean are grown with maximum use of organic fertilizer. Soyabean also filtered and have very less amount of wastage. Please feel free to contact anytime.</string>
+    <string name="discription">Discription</string>
+    <string name="Discription" />
+    <string name="offer_validity">Offer validity</string>
+    <string name="_15_0_kg">15.0 Kg</string>
+    <string name="_14_10_2019_14_10_2019">14/10/2019 - 14/10/2019</string>
+    <string name="rs_8500_kg">Rs.8500/ Kg</string>
+    <string name="soyabean">Soyabean</string>
+    <string name="buy_now">Rquest Now</string>
+    <string name="buyer_details_activity_title"></string>
+    <string name="tab_1">Tab 1</string>
+    <string name="tab_2">Tab 2</string>
+    <string name="tab_3">Tab 3</string>
 </resources>
