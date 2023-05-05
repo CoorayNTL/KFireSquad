@@ -1,52 +1,99 @@
 package com.project.k_firesquad
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.project.k_firesquad.activites.BuyerDetailsActivity
-import com.project.k_firesquad.adapter.BuyerAdapter
-import com.project.k_firesquad.models.Buyer
+import com.project.k_firesquad.adapter.DriverAdapter
+import com.project.k_firesquad.databinding.ActivityMainBinding
+import com.project.k_firesquad.models.DataItem
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var buyerArrayList: ArrayList<Buyer>
-    private lateinit var buyerAdapter: BuyerAdapter
-    private lateinit var linearLayoutManager: LinearLayoutManager
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var mList: ArrayList<DataItem>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        recyclerView = findViewById(R.id.rv_buyer)
-        recyclerView.setHasFixedSize(true)
-        buyerArrayList = ArrayList()
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
+        binding.recycleView.setHasFixedSize(true)
+        binding.recycleView.layoutManager = LinearLayoutManager(this)
 
-        buyerArrayList.add(Buyer(R.drawable.cotton,"cotton"))
-        buyerArrayList.add(Buyer(R.drawable.cucumber,"cucumber"))
-        buyerArrayList.add(Buyer(R.drawable.marigold,"marigold"))
-        buyerArrayList.add(Buyer(R.drawable.non_gmo_soya_bean,"soya_bean"))
-        buyerArrayList.add(Buyer(R.drawable.orange,"orange"))
-        buyerArrayList.add(Buyer(R.drawable.ginga,"ginga"))
-        buyerArrayList.add(Buyer(R.drawable.marigold,"marigold"))
-        buyerArrayList.add(Buyer(R.drawable.cucumber,"cucumber"))
-        buyerArrayList.add(Buyer(R.drawable.potato,"potato"))
-
-        buyerAdapter = BuyerAdapter(buyerArrayList)
-        recyclerView.adapter = buyerAdapter
-
-        buyerAdapter.onItemClick = {
-            val intent = Intent(this, BuyerDetailsActivity::class.java)
-            intent.putExtra("name", it.name)
-            startActivity(intent)
-
-        }
+        mList = ArrayList()
+        prepareData()
 
 
+        val adapter = DriverAdapter(mList)
+        binding.recycleView.adapter = adapter
+
+    }
+
+    private fun prepareData() {
+        mList.add(
+            DataItem(
+                R.drawable.truck1,
+                "TN 01 2345",
+                "2-Axl-Lorry",
+                "ABC Company",
+                10000,
+                "We provide professional moving services for residential and commercial customers",
+                "9876543210",
+                "Chennai"
+            )
+        )
+
+        mList.add(
+            DataItem(
+                R.drawable.truck2,
+                "TN 01 2345",
+                "2-Axl-Lorry",
+                "ABC Company",
+                10000,
+                "We provide professional moving services for residential and commercial customers",
+                "9876543210",
+                "Chennai"
+            )
+        )
+
+        mList.add(
+            DataItem(
+                R.drawable.truck3,
+                "TN 01 2345",
+                "2-Axl-Lorry",
+                "ABC Company",
+                10000,
+                "We provide professional moving services for residential and commercial customers",
+                "9876543210",
+                "Chennai"
+            )
+        )
+
+        mList.add(
+            DataItem(
+                R.drawable.truck4,
+                "TN 01 2345",
+                "2-Axl-Lorry",
+                "ABC Company",
+                10000,
+                "We provide professional moving services for residential and commercial customers",
+                "9876543210",
+                "Chennai"
+            )
+        )
+
+        mList.add(
+            DataItem(
+                R.drawable.truck5,
+                "TN 01 2345",
+                "2-Axl-Lorry",
+                "ABC Company",
+                10000,
+                "We provide professional moving services for residential and commercial customers",
+                "9876543210",
+                "Chennai"
+            )
+        )
     }
 }
