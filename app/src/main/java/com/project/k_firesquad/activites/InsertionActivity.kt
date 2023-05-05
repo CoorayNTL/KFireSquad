@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.project.k_firesquad.MainActivity2
+import com.project.k_firesquad.MainActivityProfile
 import com.project.k_firesquad.R
 import com.project.k_firesquad.models.CompanyData
 
@@ -21,7 +22,6 @@ class InsertionActivity: AppCompatActivity() {
     private lateinit var mobile:EditText
     private lateinit var email:EditText
     private lateinit var address:EditText
-//    private lateinit var image:Button
     private lateinit var submit:Button
     private lateinit var password:EditText
     private lateinit var username:EditText
@@ -37,7 +37,6 @@ class InsertionActivity: AppCompatActivity() {
         email= findViewById(R.id.email)
         mobile = findViewById(R.id.mobile)
         address = findViewById(R.id.text_address)
-//        image = findViewById(R.id.btnUploadImage)
         submit= findViewById(R.id.submitButton)
         password = findViewById(R.id.password)
         username = findViewById(R.id.username)
@@ -108,7 +107,7 @@ class InsertionActivity: AppCompatActivity() {
                 builder.setMessage("User added successfully")
 
                 builder.setPositiveButton("OK"){dialog, which ->
-                    val intent= Intent(this,MainActivity2::class.java)
+                    val intent= Intent(this,MainActivityProfile::class.java)
                     startActivity(intent)
                 }
                 val dialog=builder.create()

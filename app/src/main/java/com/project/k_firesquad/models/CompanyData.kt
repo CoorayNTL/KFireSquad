@@ -6,7 +6,7 @@ data class CompanyData(
     var password:String?=null,
 //    val image:Int,
     val company_name:String?=null,
-    val address:String?=null,
-    val contact:String?=null,
     val email:String?=null,
+    val contact:String?=null,
+    val address:String?=null
 )

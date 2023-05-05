@@ -25,112 +25,164 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="69dp"
+        android:layout_width="wrap_content"
         android:layout_height="22dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="48dp"
-        android:text="username"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/username1"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUp" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="240dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="44dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="24dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintHorizontal_bias="0.901"
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/signUp" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="84dp"
-        android:text="comapny name"
+        android:layout_height="22dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/company_name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="242dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="72dp"
+        android:layout_width="240dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="32dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.071"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/useremail"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="38dp"
-        android:text="email"
+        android:layout_height="22dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/email1"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="249dp"
-        android:layout_height="34dp"
+        android:layout_width="240dp"
+        android:layout_height="22dp"
         android:layout_marginStart="174dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="114dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.565"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintStart_toEndOf="@+id/useremail"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/contact"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="63dp"
-        android:text="contact"
+        android:layout_height="22dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/contact_no"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/useremail" />
 
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="240dp"
+        android:layout_height="22dp"
         android:layout_marginStart="159dp"
-        android:layout_marginTop="53dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="116dp"
         android:text="TextView"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toEndOf="@+id/contact"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="78dp"
-        android:text="Address"
+        android:layout_height="22dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/address1"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/contact" />
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="236dp"
+        android:layout_height="142dp"
         android:layout_marginStart="163dp"
-        android:layout_marginTop="71dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="107dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toEndOf="@+id/textView11"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAddVehicle"
+        android:layout_width="355dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="28dp"
+        android:backgroundTint="@color/green"
+        android:text="Add New Vehicle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnUpdateProfile"
+        android:layout_width="355dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
+        android:backgroundTint="#FF9800"
+        android:text="Update Account"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddVehicle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDeleteAccount"
+        android:layout_width="355dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
+        android:backgroundTint="#F44336"
+        android:text="Delete Account"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnUpdateProfile" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
