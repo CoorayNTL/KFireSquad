@@ -32,6 +32,8 @@ class BuyerAdapter (private val BuyerList: ArrayList<Buyer>): RecyclerView.Adapt
         holder.itemView.setOnClickListener {
             onItemClick?.invoke(BuyerList[position])
             //Toast.makeText(holder.itemView.context, "You clicked on item #${position + 1}", Toast.LENGTH_SHORT).show()
+
+
         }
     }
 

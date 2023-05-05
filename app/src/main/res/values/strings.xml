@@ -22,4 +22,8 @@
     <string name="tab_1">Tab 1</string>
     <string name="tab_2">Tab 2</string>
     <string name="tab_3">Tab 3</string>
+    <string name="tab_layout_description">This is a tab layout with several tabs to switch between different views</string>
+    <string name="tab_item_1" />
+    <string name="tab_item_2" />
+    <string name="this_is_a_tab_layout_with_several_tabs_to_switch_between_different_views">This is a tab layout with several tabs to switch between different views</string>
 </resources>

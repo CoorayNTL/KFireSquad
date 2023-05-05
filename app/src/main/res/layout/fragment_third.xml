@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".fragments.SecondFragment">
+    tools:context=".fragments.ThirdFragment">
 
-    <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="194dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="20dp"
         android:layout_marginHorizontal="10dp"
         android:layout_marginVertical="16dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="4dp">
+        app:cardElevation="4dp"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
 
@@ -25,14 +26,14 @@
                 android:id="@+id/iv_buyer_image"
                 android:layout_width="93dp"
                 android:layout_height="132dp"
-                android:contentDescription="TODO"
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-
                 app:layout_constraintTop_toTopOf="parent"
+
                 app:layout_constraintVertical_bias="1.0"
                 app:srcCompat="@drawable/cotton"
+                android:contentDescription="TODO"
                 tools:ignore="ContentDescription,HardcodedText" />
 
             <TextView
@@ -189,4 +190,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
+
 </FrameLayout>
