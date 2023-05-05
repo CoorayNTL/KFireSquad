@@ -5,7 +5,7 @@
     <string name="more_details">More-Details</string>
     <string name="rs_450_0_1kg">Rs.450.0/1Kg</string>
     <string name="_0712347890">0712347890</string>
-    <string name="contact">Contact</string>
+    <string name="location">Location</string>
     <string name="_300_kg">300 Kg</string>
     <string name="quantity">Quantity</string>
     <string name="todo">TODO</string>
@@ -22,4 +22,5 @@
     <string name="tab_1">Tab 1</string>
     <string name="tab_2">Tab 2</string>
     <string name="tab_3">Tab 3</string>
+    <string name="required">Required</string>
 </resources>
