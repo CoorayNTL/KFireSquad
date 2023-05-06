@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "792030752764",
+    "firebase_url": "https://kfiresquad-9b5f5-default-rtdb.firebaseio.com",
+    "project_id": "kfiresquad-9b5f5",
+    "storage_bucket": "kfiresquad-9b5f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792030752764:android:94ed47a301f6c9de37cc79",
+        "android_client_info": {
+          "package_name": "com.project.k_firesquad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "792030752764-3jtsitnsgh3p9tgsmlap2s07skk7omrb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFvwgnPDvpG5u82FcbZl7FXcGMXtvHtYg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "792030752764-3jtsitnsgh3p9tgsmlap2s07skk7omrb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

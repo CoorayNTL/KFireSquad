@@ -12,13 +12,25 @@
         android:theme="@style/Theme.KFireSquad"
         tools:targetApi="31">
         <activity
-            android:name=".FrgmentActivity"
+            android:name=".activites.SellerProductRequestActivity"
             android:exported="false" />
         <activity
-            android:name=".activites.BuyerDetailsActivity"
+            android:name=".activites.SellerMarketPlaceActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activites.SellerUpdateProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.SellerProductViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.SellerProductsListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.SellerAddProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.SellerProfileActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +38,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activites.SellerDetailsActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

@@ -3,7 +3,7 @@ package com.project.k_firesquad.models
 import android.os.Parcel
 import android.os.Parcelable
 
-data class Buyer(val image:Int ,val name:String):Parcelable {
+data class Seller(val image:Int ,val name:String):Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readString()!!
@@ -19,12 +19,12 @@ data class Buyer(val image:Int ,val name:String):Parcelable {
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<Buyer> {
-        override fun createFromParcel(parcel: Parcel): Buyer {
-            return Buyer(parcel)
+    companion object CREATOR : Parcelable.Creator<Seller> {
+        override fun createFromParcel(parcel: Parcel): Seller {
+            return Seller(parcel)
         }
 
-        override fun newArray(size: Int): Array<Buyer?> {
+        override fun newArray(size: Int): Array<Seller?> {
             return arrayOfNulls(size)
         }
     }

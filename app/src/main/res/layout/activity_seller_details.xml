@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:name=".activites.BuyerDetailsActivity"
-    android:label="@string/buyer_details_activity_title"
+    android:name=".activites.SellerDetailsActivity"
+    android:label="@string/seller_details_activity_title"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activites.BuyerDetailsActivity">
+    tools:context=".activites.SellerDetailsActivity">
 
     <ImageView
         android:id="@+id/imageView3"
@@ -36,7 +36,7 @@
 
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/buyercardView"
+            android:id="@+id/sellercardView"
             android:layout_width="328dp"
             android:layout_height="329dp"
             android:layout_marginStart="16dp"
@@ -190,7 +190,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/buyercardView"
+            app:layout_constraintTop_toBottomOf="@id/sellercardView"
             app:layout_constraintVertical_bias="0.0" />
 
 
