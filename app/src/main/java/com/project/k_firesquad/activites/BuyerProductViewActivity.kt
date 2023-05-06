@@ -11,6 +11,7 @@ import com.project.k_firesquad.R
 
 class BuyerProductViewActivity : AppCompatActivity() {
 
+    //variables
     private lateinit var sellerNameTextView: TextView
     private lateinit var sellerLocationTextView: TextView
     private lateinit var tvProductName: TextView
@@ -27,9 +28,12 @@ class BuyerProductViewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_buyer_product_view)
 
+        //call initView()
         initView()
+        //call setValuesToViews()
         setValuesToViews()
 
+        //set onclick listener to the update button
         btnUpdate.setOnClickListener {
             val currentIntent = intent
             val intent = Intent(this, BuyerUpdateProductActivity::class.java)
@@ -46,13 +50,14 @@ class BuyerProductViewActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
+        //set onclick listener to the delete button
         btnDelete.setOnClickListener {
             deleteRecord(intent.getStringExtra("buyerProductID").toString())
         }
 
     }
 
+    //initialize the view
     private fun initView() {
         sellerNameTextView = findViewById(R.id.sellerNameTextView)
         sellerLocationTextView = findViewById(R.id.sellerLocationTextView)
@@ -66,6 +71,7 @@ class BuyerProductViewActivity : AppCompatActivity() {
         btnDelete = findViewById(R.id.btnDelete)
     }
 
+    //set values to views
     private fun setValuesToViews() {
 
         sellerNameTextView.text = intent.getStringExtra("sellerName")
@@ -78,6 +84,7 @@ class BuyerProductViewActivity : AppCompatActivity() {
 
     }
 
+    //delete the selected record
     private fun deleteRecord(productID: String) {
         val dbRef = FirebaseDatabase.getInstance().getReference("BuyerProducts").child(productID)
         val mTask = dbRef.removeValue()

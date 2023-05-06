@@ -14,6 +14,7 @@ import com.project.k_firesquad.models.BuyerProduct
 
 class BuyerProductsListActivity : AppCompatActivity() {
 
+    //variables
     private lateinit var buyerProductsRecyclerView: RecyclerView
     private lateinit var tvLoadingData: TextView
     private lateinit var buyerProductsList: ArrayList<BuyerProduct>
@@ -24,6 +25,7 @@ class BuyerProductsListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_buyer_products_list)
 
 
+        //initialize variables
         buyerProductsRecyclerView = findViewById(R.id.rvEmp)
         buyerProductsRecyclerView.layoutManager = LinearLayoutManager(this)
         buyerProductsRecyclerView.setHasFixedSize(true)
@@ -31,15 +33,18 @@ class BuyerProductsListActivity : AppCompatActivity() {
 
         buyerProductsList = arrayListOf<BuyerProduct>()
 
+        //call the getBuyerProductsData()
         getBuyerProductsData()
 
     }
 
+    //get product details of the buyer
     private fun getBuyerProductsData() {
 
         buyerProductsRecyclerView.visibility = View.GONE
         tvLoadingData.visibility = View.VISIBLE
 
+        //initialize firebase connection
         dbRef = FirebaseDatabase.getInstance().getReference("BuyerProducts")
 
         dbRef.addValueEventListener(object : ValueEventListener {
@@ -58,7 +63,7 @@ class BuyerProductsListActivity : AppCompatActivity() {
 
                             val intent = Intent(this@BuyerProductsListActivity, BuyerProductViewActivity::class.java)
 
-//                            //put extras
+                            //put extras
                             intent.putExtra("buyerID", buyerProductsList[position].buyerID)
                             intent.putExtra("buyerProductID", buyerProductsList[position].buyerProductID)
                             intent.putExtra("sellerName", buyerProductsList[position].sellerName)

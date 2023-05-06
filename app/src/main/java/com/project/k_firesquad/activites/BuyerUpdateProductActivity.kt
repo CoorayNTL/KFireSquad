@@ -17,6 +17,7 @@ import java.util.*
 
 class BuyerUpdateProductActivity : AppCompatActivity() {
 
+    //variables
     private lateinit var etProductName: EditText
     private lateinit var etProductQty: EditText
     private lateinit var etProductRate: EditText
@@ -37,6 +38,8 @@ class BuyerUpdateProductActivity : AppCompatActivity() {
         setTextValues()
 
         calendar = Calendar.getInstance()
+
+        //date select handler
         etOfferStartDate.setOnClickListener {
 
             DatePickerDialog(this, startDateSetListener,
@@ -53,6 +56,7 @@ class BuyerUpdateProductActivity : AppCompatActivity() {
             ).show()
         }
 
+        //set onclick listener to update button
         updateButton.setOnClickListener {
             updateEmpData()
             buyerProductsRecyclerView.adapter?.notifyDataSetChanged()
@@ -61,6 +65,7 @@ class BuyerUpdateProductActivity : AppCompatActivity() {
 
     }
 
+    //date selectors
     private val startDateSetListener =
         DatePickerDialog.OnDateSetListener { _: DatePicker, year: Int, monthOfYear: Int, dayOfMonth: Int ->
             calendar.set(Calendar.YEAR, year)
@@ -92,6 +97,7 @@ class BuyerUpdateProductActivity : AppCompatActivity() {
         }
 
 
+    //initializing fields
     private fun initializeFields()  {
         etProductName = findViewById(R.id.etProductName)
         etProductQty = findViewById(R.id.etProductQty)
@@ -105,6 +111,7 @@ class BuyerUpdateProductActivity : AppCompatActivity() {
         updateButton = findViewById(R.id.updateProductButton)
     }
 
+    //set previous values to the text values
     private fun setTextValues(){
         etProductName.setText(intent.getStringExtra("productName"))
         etProductQty.setText(intent.getStringExtra("productQty"))
@@ -116,6 +123,7 @@ class BuyerUpdateProductActivity : AppCompatActivity() {
         etOfferEndDate.setText(intent.getStringExtra("offerStartDate"))
     }
 
+    //update the data
     private fun updateEmpData() {
         val productName = etProductName.text.toString()
         val productQty = etProductQty.text.toString()

@@ -38,12 +38,14 @@ class BuyerAddProductActivity : AppCompatActivity() {
         initializeFields()
 
         dbRef = FirebaseDatabase.getInstance().getReference("BuyerProducts")
+
+        //submit button
         submitButton.setOnClickListener {
             saveBuyerProductData()
-//            Log.d("Values", values)
-
         }
         calendar = Calendar.getInstance()
+
+        //date pickers
         etOfferStartDate.setOnClickListener {
 
             DatePickerDialog(this, startDateSetListener,
@@ -61,6 +63,7 @@ class BuyerAddProductActivity : AppCompatActivity() {
         }
     }
 
+    //date listeners
     private val startDateSetListener =
         DatePickerDialog.OnDateSetListener { _: DatePicker, year: Int, monthOfYear: Int, dayOfMonth: Int ->
             calendar.set(Calendar.YEAR, year)
@@ -91,6 +94,7 @@ class BuyerAddProductActivity : AppCompatActivity() {
 
         }
 
+    //initialize input fields
     private fun initializeFields()  {
         etProductName = findViewById(R.id.etProductName)
         etProductQty = findViewById(R.id.etProductQty)
@@ -104,6 +108,7 @@ class BuyerAddProductActivity : AppCompatActivity() {
         submitButton = findViewById(R.id.submitButton)
     }
 
+    //Save Products function
     private fun saveBuyerProductData()  {
         val productName =  etProductName.text.toString()
         val productQty = etProductQty.text.toString()

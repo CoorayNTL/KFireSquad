@@ -14,6 +14,7 @@ import com.project.k_firesquad.models.BuyerProduct
 
 class BuyerMarketPlaceActivity : AppCompatActivity() {
 
+    //variables
     private lateinit var buyerProductsRecyclerView: RecyclerView
     private lateinit var tvLoadingData: TextView
     private lateinit var buyerProductsList: ArrayList<BuyerProduct>
@@ -25,7 +26,7 @@ class BuyerMarketPlaceActivity : AppCompatActivity() {
         setContentView(R.layout.activity_buyer_market_place)
 
 
-
+        //initialize variables
         buyerProductsRecyclerView = findViewById(R.id.rvEmp)
         buyerProductsRecyclerView.layoutManager = LinearLayoutManager(this)
         buyerProductsRecyclerView.setHasFixedSize(true)
@@ -33,16 +34,19 @@ class BuyerMarketPlaceActivity : AppCompatActivity() {
 
         buyerProductsList = arrayListOf<BuyerProduct>()
 
+        //call getProductsData() function
         getBuyerProductsData()
 
     }
 
 
+    //get all product details
     private fun getBuyerProductsData() {
 
         buyerProductsRecyclerView.visibility = View.GONE
         tvLoadingData.visibility = View.VISIBLE
 
+        //initialize firebase connection
         dbRef = FirebaseDatabase.getInstance().getReference("BuyerProducts")
 
         dbRef.addValueEventListener(object : ValueEventListener {
