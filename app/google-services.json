@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "375250531854",
+    "project_id": "madprojectfirebase-2adcf",
+    "storage_bucket": "madprojectfirebase-2adcf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375250531854:android:ef5791356c18bc4225ae5f",
+        "android_client_info": {
+          "package_name": "com.project.k_firesquad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375250531854-c3gactjudtnsne95vn1rcrg2jum51ff2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeZsZXT2twpp8zaF088g2i1XTCJ_Fg0wk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "375250531854-c3gactjudtnsne95vn1rcrg2jum51ff2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
