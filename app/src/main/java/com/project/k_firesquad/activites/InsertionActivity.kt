@@ -33,13 +33,14 @@ class InsertionActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_insertion)
 
-        name = findViewById(R.id.name)
-        email= findViewById(R.id.email)
-        mobile = findViewById(R.id.mobile)
-        address = findViewById(R.id.text_address)
-        submit= findViewById(R.id.submitButton)
-        password = findViewById(R.id.password)
-        username = findViewById(R.id.username)
+        name = findViewById(R.id.name) //company name
+        email= findViewById(R.id.email) //company email
+        mobile = findViewById(R.id.mobile) //company mobile
+        address = findViewById(R.id.text_address) //company address
+        submit= findViewById(R.id.submitButton) //submit button
+        password = findViewById(R.id.password) //company password
+        username = findViewById(R.id.username) //company username
+
 
         dbRef = FirebaseDatabase.getInstance().getReference("Users")
 
@@ -58,6 +59,8 @@ class InsertionActivity: AppCompatActivity() {
         val cmpaddress = address.text.toString()
         val cmppassword = password.text.toString()
         val cmpusername = username.text.toString()
+
+
 
         // Validation
         if(cmpname.isEmpty()){
@@ -108,6 +111,13 @@ class InsertionActivity: AppCompatActivity() {
 
                 builder.setPositiveButton("OK"){dialog, which ->
                     val intent= Intent(this,MainActivityProfile::class.java)
+
+                    intent.putExtra("company_name", cmpname)
+                    intent.putExtra("email", cmpemail)
+                    intent.putExtra("contact", cmpmobile)
+                    intent.putExtra("address", cmpaddress)
+                    intent.putExtra("username", cmpusername)
+
                     startActivity(intent)
                 }
                 val dialog=builder.create()

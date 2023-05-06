@@ -23,8 +23,13 @@ class MainActivity2 : AppCompatActivity() {
 
         regButton.setOnClickListener {
             val intent = Intent(this, InsertionActivity::class.java)
+
             startActivity(intent)
         }
+
+
+
+
 
 
     }

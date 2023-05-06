@@ -4,6 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
+import com.project.k_firesquad.activites.addVehicleActivity
 import com.project.k_firesquad.activites.profileUpdateActivity
 
 class MainActivityProfile : AppCompatActivity() {
@@ -11,6 +16,16 @@ class MainActivityProfile : AppCompatActivity() {
     private lateinit var btnAddVehicle: Button
     private lateinit var btnUpdateProfile: Button
     private lateinit var btnDeleteAccount: Button
+
+    private lateinit var usernameTextView:TextView
+    private lateinit var emailTextView:TextView
+    private lateinit var mobileTextView:TextView
+    private lateinit var addressTextView:TextView
+    private lateinit var companyNameTextView: TextView
+
+    private lateinit var databaseReference: DatabaseReference
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -22,8 +37,9 @@ class MainActivityProfile : AppCompatActivity() {
         btnDeleteAccount = findViewById(R.id.btnDeleteAccount)
 
         btnAddVehicle.setOnClickListener {
-//            val intent = Intent(this, AddVehicleActivity::class.java)
-//            startActivity(intent)
+            val intent = Intent(this,addVehicleActivity::class.java)
+            startActivity(intent)
+
         }
 
         btnUpdateProfile.setOnClickListener {
@@ -32,9 +48,54 @@ class MainActivityProfile : AppCompatActivity() {
         }
 
         btnDeleteAccount.setOnClickListener {
-//            val intent = Intent(this, DeleteAccountActivity::class.java)
-//            startActivity(intent)
+            deleteRecord(intent.getStringExtra("username").toString())
         }
 
+        //initialize the Text Views
+        usernameTextView=findViewById(R.id.usernameTextView)
+        emailTextView=findViewById(R.id.emailTextView)
+        mobileTextView=findViewById(R.id.mobileTextView)
+        addressTextView=findViewById(R.id.addressTextView)
+        companyNameTextView=findViewById(R.id.companyNameTextView)
+
+        //get the data from the intent
+        intent.extras?.let {
+            val username = it.getString("username")
+            val email = it.getString("email")
+            val mobile = it.getString("contact")
+            val address = it.getString("address")
+            val companyName = it.getString("company_name")
+
+            //set the data to the text views
+            usernameTextView.text = username
+            emailTextView.text = email
+            mobileTextView.text = mobile
+            addressTextView.text = address
+            companyNameTextView.text = companyName
+        }
+
+
+
     }
+
+    private fun deleteRecord(username: String) {
+        val dbRef= FirebaseDatabase.getInstance().getReference("CompanyData").child(username)
+
+        val mTask=dbRef.removeValue()
+
+        mTask.addOnSuccessListener {
+            Toast.makeText(this,"Account Deleted Successfully",Toast.LENGTH_SHORT).show()
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this,MainActivity2::class.java)
+            startActivity(intent)
+            finish()
+        }.addOnFailureListener{
+            Toast.makeText(this,"Error Occurred",Toast.LENGTH_SHORT).show()
+        }
+
+
+
+    }
+
+
 }

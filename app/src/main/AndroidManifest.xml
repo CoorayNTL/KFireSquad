@@ -18,6 +18,9 @@
             android:name=".activites.profileUpdateActivity"
             android:exported="false"
             />
+        <activity android:name=".activites.addVehicleActivity"
+            android:exported="false"
+            />
         <activity
             android:name=".activites.InsertionActivity"
             android:exported="false"
@@ -35,17 +38,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="false">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
         </activity>
-        <activity
-            android:name=".activites.InsertionActivity"
-            android:exported="false" />
     </application>
 
 </manifest>

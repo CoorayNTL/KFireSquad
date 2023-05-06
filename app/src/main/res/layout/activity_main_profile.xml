@@ -36,7 +36,7 @@
         app:layout_constraintTop_toBottomOf="@+id/signUp" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/usernameTextView"
         android:layout_width="240dp"
         android:layout_height="22dp"
         android:layout_marginTop="24dp"
@@ -57,17 +57,17 @@
         android:textStyle="bold"
 
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/usernameTextView" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/companyNameTextView"
         android:layout_width="240dp"
         android:layout_height="22dp"
         android:layout_marginTop="32dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/usernameTextView" />
 
     <TextView
         android:id="@+id/useremail"
@@ -82,7 +82,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/emailTextView"
         android:layout_width="240dp"
         android:layout_height="22dp"
         android:layout_marginStart="174dp"
@@ -92,7 +92,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toEndOf="@+id/useremail"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/companyNameTextView" />
 
     <TextView
         android:id="@+id/contact"
@@ -107,7 +107,7 @@
         app:layout_constraintTop_toBottomOf="@+id/useremail" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/mobileTextView"
         android:layout_width="240dp"
         android:layout_height="22dp"
         android:layout_marginStart="159dp"
@@ -118,7 +118,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toEndOf="@+id/contact"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
 
     <TextView
         android:id="@+id/textView11"
@@ -133,7 +133,7 @@
         app:layout_constraintTop_toBottomOf="@+id/contact" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/addressTextView"
         android:layout_width="236dp"
         android:layout_height="142dp"
         android:layout_marginStart="163dp"
@@ -143,7 +143,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toBottomOf="@+id/mobileTextView" />
 
 
     <com.google.android.material.button.MaterialButton
@@ -158,7 +158,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/addressTextView" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnUpdateProfile"
