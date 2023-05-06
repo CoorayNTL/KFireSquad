@@ -12,16 +12,18 @@ import com.project.k_firesquad.R
 import com.project.k_firesquad.adapter.BuyerMarketPlaceAdapter
 import com.project.k_firesquad.models.BuyerProduct
 
-class BuyerProductsListActivity : AppCompatActivity() {
+class BuyerMarketPlaceActivity : AppCompatActivity() {
 
     private lateinit var buyerProductsRecyclerView: RecyclerView
     private lateinit var tvLoadingData: TextView
     private lateinit var buyerProductsList: ArrayList<BuyerProduct>
     private lateinit var dbRef: DatabaseReference
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_buyer_products_list)
+        setContentView(R.layout.activity_buyer_market_place)
+
 
 
         buyerProductsRecyclerView = findViewById(R.id.rvEmp)
@@ -34,6 +36,7 @@ class BuyerProductsListActivity : AppCompatActivity() {
         getBuyerProductsData()
 
     }
+
 
     private fun getBuyerProductsData() {
 
@@ -56,7 +59,7 @@ class BuyerProductsListActivity : AppCompatActivity() {
                     mAdapter.setOnItemClickListener(object : BuyerMarketPlaceAdapter.onItemClickListener{
                         override fun onItemClick(position: Int) {
 
-                            val intent = Intent(this@BuyerProductsListActivity, BuyerProductViewActivity::class.java)
+                            val intent = Intent(this@BuyerMarketPlaceActivity, BuyerProductRequestActivity::class.java)
 
 //                            //put extras
                             intent.putExtra("buyerID", buyerProductsList[position].buyerID)
@@ -86,3 +89,4 @@ class BuyerProductsListActivity : AppCompatActivity() {
         })
     }
 }
+

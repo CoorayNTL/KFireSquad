@@ -26,7 +26,7 @@ class BuyerAddProductActivity : AppCompatActivity() {
     private lateinit var etSellerLocation: EditText
     private lateinit var etOfferStartDate: EditText
     private lateinit var etOfferEndDate: EditText
-//    private lateinit var btnUploadImage: Button
+    //    private lateinit var btnUploadImage: Button
     private lateinit var submitButton: Button
     private lateinit var calendar: Calendar
 
@@ -34,13 +34,13 @@ class BuyerAddProductActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_buyer_add_product)
+        setContentView(R.layout.activity_buyer_add_products)
         initializeFields()
 
         dbRef = FirebaseDatabase.getInstance().getReference("BuyerProducts")
         submitButton.setOnClickListener {
-            val values = saveBuyerProductData()
-            Log.d("Values", values)
+            saveBuyerProductData()
+//            Log.d("Values", values)
 
         }
         calendar = Calendar.getInstance()
@@ -74,7 +74,7 @@ class BuyerAddProductActivity : AppCompatActivity() {
 
 
 
-    }
+        }
 
     private val endDateSetListener =
         DatePickerDialog.OnDateSetListener { _: DatePicker, year: Int, monthOfYear: Int, dayOfMonth: Int ->
@@ -104,7 +104,7 @@ class BuyerAddProductActivity : AppCompatActivity() {
         submitButton = findViewById(R.id.submitButton)
     }
 
-    private fun saveBuyerProductData() : String {
+    private fun saveBuyerProductData()  {
         val productName =  etProductName.text.toString()
         val productQty = etProductQty.text.toString()
         val productRate = etProductRate.text.toString()
@@ -115,6 +115,47 @@ class BuyerAddProductActivity : AppCompatActivity() {
         val offerEndDate = etOfferEndDate.text.toString()
         val buyerProductID = dbRef.push().key!!
         val buyerID = dbRef.push().key!!
+
+        //validation
+        if(productName.isEmpty()){
+            etProductName.error = "Please Enter the Product Name"
+            return
+        }
+
+        if(productQty.isEmpty()){
+            etProductQty.error = "Please Enter the Quantity"
+            return
+        }
+
+        if(productRate.isEmpty()){
+            etProductRate.error = "Please Enter the Product Rate"
+            return
+        }
+
+        if(description.isEmpty()){
+            etDescription.error = "Please Enter the Product Description"
+            return
+        }
+
+        if(sellerName.isEmpty()){
+            etSellerName.error = "Please Enter the Seller Name"
+            return
+        }
+
+        if(sellerLocation.isEmpty()){
+            etSellerLocation.error = "Please Enter the Seller Location"
+            return
+        }
+
+        if(offerStartDate.isEmpty()){
+            etOfferStartDate.error = "Please Enter the Offer Start Date"
+            return
+        }
+
+        if(offerEndDate.isEmpty()){
+            etOfferEndDate.error = "Please Enter the Offer End Date"
+            return
+        }
 
         val buyerProduct = BuyerProduct(buyerProductID, productName, productQty, productRate, description, sellerName, sellerLocation, offerStartDate, offerEndDate, buyerID)
 
@@ -128,7 +169,7 @@ class BuyerAddProductActivity : AppCompatActivity() {
 
 
 
-        return "$productName $productQty $productRate $description $sellerName $sellerLocation $offerStartDate $offerEndDate"
+//        return "$productName $productQty $productRate $description $sellerName $sellerLocation $offerStartDate $offerEndDate"
     }
 
 }

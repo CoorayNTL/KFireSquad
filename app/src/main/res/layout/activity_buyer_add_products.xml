@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="30dp"
-        app:helperText="@string/required"
+        app:helperText=""
         app:helperTextTextColor="@android:color/holo_red_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
         android:layout_marginTop="30dp"
 
         app:counterMaxLength="16"
-        app:helperText="@string/required"
+        app:helperText=""
         app:helperTextTextColor="@android:color/holo_red_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,7 +66,7 @@
         android:layout_marginTop="30dp"
 
         app:counterMaxLength="10"
-        app:helperText="@string/required"
+        app:helperText=""
         app:helperTextTextColor="@android:color/holo_red_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -92,7 +92,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="30dp"
         app:counterEnabled="true"
-        app:helperText="@string/required"
+        app:helperText=""
         app:helperTextTextColor="@android:color/holo_red_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -134,7 +134,7 @@
             android:layout_weight="1"
 
             app:counterMaxLength="10"
-            app:helperText="@string/required"
+            app:helperText=""
             app:helperTextTextColor="@android:color/holo_red_dark">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -156,7 +156,7 @@
             android:layout_weight="1"
 
             app:counterMaxLength="10"
-            app:helperText="@string/required"
+            app:helperText=""
             app:helperTextTextColor="@android:color/holo_red_dark">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -177,6 +177,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:orientation="horizontal"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toTopOf="@+id/tvImageUpload"
         app:layout_constraintTop_toBottomOf="@+id/sellerDetailsContainer"
         app:layout_constraintVertical_bias="0.286"
@@ -191,7 +192,7 @@
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:hint="Start Date"
-            app:helperText="@string/required"
+            app:helperText=""
             app:helperTextTextColor="@android:color/holo_red_dark"
             app:layout_constraintEnd_toStartOf="@+id/offerEndDateContainer"
             app:layout_constraintStart_toStartOf="parent"
@@ -217,7 +218,7 @@
             android:layout_weight="1"
             android:hint="End Date"
 
-            app:helperText="@string/required"
+            app:helperText=""
             app:helperTextTextColor="@android:color/holo_red_dark"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/offerStartDateContainer"
@@ -239,8 +240,8 @@
         android:id="@+id/tvImageUpload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
         android:text="Upload Image"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -250,7 +251,7 @@
         android:id="@+id/btnUploadImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="324dp"
         android:clickable="true"
         android:contentDescription="Upload Image"
@@ -262,11 +263,10 @@
         android:id="@+id/submitButton"
         android:layout_width="355dp"
         android:layout_height="50dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="108dp"
         android:backgroundTint="@color/green"
         android:text="Add Product"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.553"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvImageUpload" />
 
