@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/signUp"
+        android:id="@+id/TvHeaderAddNewVehicle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -30,7 +30,7 @@
         app:helperTextTextColor="@android:color/holo_red_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUp">
+        app:layout_constraintTop_toBottomOf="@+id/TvHeaderAddNewVehicle">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/vehicleNo"
@@ -163,12 +163,10 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/aboutVehicle"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="62dp"
             android:hint="About Vehicle:"
             android:inputType="textMultiLine"
-            android:lines="8"
-            android:maxLines="10"
-            android:minLines="6"
+            android:lines="2"
             android:scrollbars="vertical"
             tools:layout_editor_absoluteX="15dp"
             tools:layout_editor_absoluteY="472dp" />
@@ -197,11 +195,35 @@
             android:layout_height="match_parent"
             android:hint="Location:"
 
-            android:lines="6"
+            android:lines="2"
             />
 
 
     </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:id="@+id/tvImageUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Upload Image"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TvLocation" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnUploadImage"
+        android:layout_width="56dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="176dp"
+        android:clickable="true"
+        android:contentDescription="Upload Image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvImageUpload"
+        app:layout_constraintTop_toBottomOf="@+id/TvLocation"
+        app:srcCompat="@drawable/add_icon" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/submitButton"
@@ -211,15 +233,10 @@
         android:text="Save Vehicle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.357"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TvLocation"
-        app:layout_constraintVertical_bias="0.489" />
-
-
-
-
-
-
+        app:layout_constraintVertical_bias="0.768" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

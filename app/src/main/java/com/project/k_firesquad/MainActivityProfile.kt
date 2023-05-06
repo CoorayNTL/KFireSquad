@@ -16,13 +16,11 @@ class MainActivityProfile : AppCompatActivity() {
     private lateinit var btnAddVehicle: Button
     private lateinit var btnUpdateProfile: Button
     private lateinit var btnDeleteAccount: Button
-
     private lateinit var usernameTextView:TextView
     private lateinit var emailTextView:TextView
     private lateinit var mobileTextView:TextView
     private lateinit var addressTextView:TextView
     private lateinit var companyNameTextView: TextView
-
     private lateinit var databaseReference: DatabaseReference
 
 
