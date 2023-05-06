@@ -12,7 +12,25 @@
         android:theme="@style/Theme.KFireSquad"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".activites.BuyerProductRequestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.BuyerMarketPlaceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.BuyerUpdateProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.BuyerProductViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.BuyerProductsListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.BuyerAddProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.BuyerProfileActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +38,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activites.BuyerDetailsActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

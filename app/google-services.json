@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "404532344051",
+    "project_id": "kfiresquad-70c11",
+    "storage_bucket": "kfiresquad-70c11.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:404532344051:android:362e213d6f8e2fa72ff386",
+        "android_client_info": {
+          "package_name": "com.project.k_firesquad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "404532344051-06vfctobehpqqaetoqlshpg20u2c71d8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2SOmXhCzPMpfngUo80CZPjKK3yyLzluM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "404532344051-06vfctobehpqqaetoqlshpg20u2c71d8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
