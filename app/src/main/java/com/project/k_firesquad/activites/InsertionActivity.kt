@@ -47,7 +47,6 @@ class InsertionActivity: AppCompatActivity() {
 
         submit.setOnClickListener {
             saveUserData()
-
         }
     }
 

@@ -14,6 +14,8 @@ const val ITEM_WITHOUT_POSTER = 1
 class DriverAdapter(private val mList: List<DataItem>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+
+
     inner class ItemWithPosterViewHolder(private val binding: ItemWithPosterBinding) :
         RecyclerView.ViewHolder(binding.root) {
 

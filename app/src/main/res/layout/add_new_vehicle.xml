@@ -163,7 +163,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/aboutVehicle"
             android:layout_width="match_parent"
-            android:layout_height="62dp"
+            android:layout_height="43dp"
             android:hint="About Vehicle:"
             android:inputType="textMultiLine"
             android:lines="2"
@@ -192,11 +192,10 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/location"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="36dp"
             android:hint="Location:"
 
-            android:lines="2"
-            />
+            android:lines="2" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -229,14 +228,13 @@
         android:id="@+id/submitButton"
         android:layout_width="355dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="48dp"
         android:backgroundTint="@color/green"
         android:text="Save Vehicle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.357"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TvLocation"
-        app:layout_constraintVertical_bias="0.768" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

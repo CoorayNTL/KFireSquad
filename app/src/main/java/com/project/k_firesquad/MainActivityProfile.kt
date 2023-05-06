@@ -64,6 +64,7 @@ class MainActivityProfile : AppCompatActivity() {
             val address = it.getString("address")
             val companyName = it.getString("company_name")
 
+
             //set the data to the text views
             usernameTextView.text = username
             emailTextView.text = email
@@ -77,22 +78,35 @@ class MainActivityProfile : AppCompatActivity() {
     }
 
     private fun deleteRecord(username: String) {
-        val dbRef= FirebaseDatabase.getInstance().getReference("CompanyData").child(username)
+        val dbRef = FirebaseDatabase.getInstance().getReference("Users")
+        val query: Query = dbRef.orderByChild("username").equalTo(username)
 
-        val mTask=dbRef.removeValue()
+        query.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    for (userSnapshot in dataSnapshot.children) {
+                        val userKey = userSnapshot.key
+                        if (userKey != null) {
+                            dbRef.child(userKey).removeValue().addOnSuccessListener {
+                                Toast.makeText(this@MainActivityProfile, "Account Deleted Successfully", Toast.LENGTH_SHORT).show()
+                                FirebaseAuth.getInstance().signOut()
+                                val intent = Intent(this@MainActivityProfile, MainActivity2::class.java)
+                                startActivity(intent)
+                                finish()
+                            }.addOnFailureListener {
+                                Toast.makeText(this@MainActivityProfile, "Error Occurred", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    }
+                } else {
+                    Toast.makeText(this@MainActivityProfile, "User not found", Toast.LENGTH_SHORT).show()
+                }
+            }
 
-        mTask.addOnSuccessListener {
-            Toast.makeText(this,"Account Deleted Successfully",Toast.LENGTH_SHORT).show()
-            FirebaseAuth.getInstance().signOut()
-            val intent = Intent(this,MainActivity2::class.java)
-            startActivity(intent)
-            finish()
-        }.addOnFailureListener{
-            Toast.makeText(this,"Error Occurred",Toast.LENGTH_SHORT).show()
-        }
-
-
-
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(this@MainActivityProfile, "Error Occurred", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
 

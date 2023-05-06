@@ -12,23 +12,20 @@ import com.project.k_firesquad.models.CompanyData
 
 class profileUpdateActivity: AppCompatActivity() {
 
-    private lateinit var name: EditText
     private lateinit var mobile: EditText
     private lateinit var email: EditText
     private lateinit var address: EditText
     private lateinit var submit: Button
     private lateinit var password: EditText
     private lateinit var username: EditText
-
-
-
+    private lateinit var companyName: EditText
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.update_owner_account)
 
-        name = findViewById(R.id.name)
+        companyName = findViewById(R.id.company_name)
         email = findViewById(R.id.email)
         mobile = findViewById(R.id.mobile)
         address = findViewById(R.id.text_address)
@@ -46,29 +43,29 @@ class profileUpdateActivity: AppCompatActivity() {
     }
 
     private fun setTextValeus() {
-        name.setText(intent.getStringExtra("owner_name"))
-        email.setText(intent.getStringExtra("owner_email"))
-        mobile.setText(intent.getStringExtra("owner_mobile"))
-        address.setText(intent.getStringExtra("owner_address"))
-        password.setText(intent.getStringExtra("owner_password"))
-        username.setText(intent.getStringExtra("owner_username"))
+        companyName.setText(intent.getStringExtra("company_name"))
+        email.setText(intent.getStringExtra("email"))
+        mobile.setText(intent.getStringExtra("mobile"))
+        address.setText(intent.getStringExtra("address"))
+        password.setText(intent.getStringExtra("password"))
+        username.setText(intent.getStringExtra("username"))
 
     }
 
     private fun updateUserData() {
         // Get the values from the text fields
-        val cmpname = name.text.toString()
+        val cmpcompanyName = companyName.text.toString()
         val cmpemail = email.text.toString()
         val cmpmobile = mobile.text.toString()
         val cmpaddress = address.text.toString()
         val cmppassword = password.text.toString()
         val cmpusername = username.text.toString()
-        val cmpid = intent.getStringExtra("owner_id")
+
 
         val cmpData =
-            CompanyData(cmpid, cmpusername, cmppassword, cmpname, cmpemail, cmpmobile, cmpaddress)
+            CompanyData(cmpusername, cmppassword, cmpcompanyName, cmpemail, cmpmobile, cmpaddress)
 
-        cmpid?.let {
+        cmpusername?.let {
             FirebaseDatabase.getInstance().getReference("Users").child(it).setValue(cmpData)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
