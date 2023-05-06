@@ -3,6 +3,7 @@ package com.project.k_firesquad.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -71,7 +72,7 @@ class MyPostDetailsActivity : AppCompatActivity() {
     }
 
     private fun setValuesToViews(){
-        tvPostId.text = intent.getStringExtra("postId").toString()
+        tvPostId.text = intent.getStringExtra("postID")
         tvPostTitle.text = intent.getStringExtra("postTitle")
         tvPostDesc.text = intent.getStringExtra("postDesc")
 
