@@ -1,5 +1,6 @@
 package com.project.k_firesquad.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -31,7 +32,6 @@ class MyPostsActivity : AppCompatActivity() {
 
         getMyPostsData()
 
-
     }
 
     private fun getMyPostsData(){
@@ -50,6 +50,20 @@ class MyPostsActivity : AppCompatActivity() {
                     }
                     val mAdapter = MyPostsAdapter(myPostList)
                     myPostsRecyclerView.adapter = mAdapter
+
+
+                    mAdapter.setOnItemClickListener(object : MyPostsAdapter.onItemClickListener{
+                        override fun onItemClick(position: Int) {
+                            val intent =  Intent(this@MyPostsActivity, MyPostDetailsActivity::class.java)
+
+                            //put extra
+                            intent.putExtra("postID",myPostList[position].postID)
+                            intent.putExtra("postTitle",myPostList[position].postTitle)
+                            intent.putExtra("postDesc",myPostList[position].postDesc)
+                            startActivity(intent)
+                        }
+
+                    })
 
                     myPostsRecyclerView.visibility = View.VISIBLE
                     tvLoadingData.visibility = View.GONE

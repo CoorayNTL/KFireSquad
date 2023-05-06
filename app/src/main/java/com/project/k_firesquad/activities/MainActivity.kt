@@ -4,13 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import com.project.k_firesquad.R
 
 class MainActivity : AppCompatActivity() {
 
 //    private lateinit var btnInsertData: Button
 //    private lateinit var btnFetchData: Button
-    private lateinit var btnExpertsActions: Button
+    private lateinit var btnExpertsActions: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

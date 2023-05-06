@@ -35,23 +35,23 @@ class AddPostActivity : AppCompatActivity() {
 
     private fun savePostsData(){
         //getting values
-        val postTitle = postTitle.text.toString()
-        val postDesc = postDesc.text.toString()
+        val tvPostTitle = postTitle.text.toString()
+        val tvPostDesc = postDesc.text.toString()
 
-//      if (postTitle.isEmpty()){
-//           postTitle.error = "Please enter post title"
-//      }
+//     if (postTitle.isEmpty()){
+//          postTitle.error = "Please enter post title"
+//     }
 
         val postID = dbRef.push().key!!
 
-        val posts = ExpertsPostModel(postID,postTitle,postDesc)
+        val posts = ExpertsPostModel(postID,tvPostTitle,tvPostDesc)
 
         dbRef.child(postID).setValue(posts)
             .addOnCompleteListener() {
                 Toast.makeText(this,"Data Added Successfully", Toast.LENGTH_LONG).show()
 
-//                postTitle.text.clear()
-//                postDesc.text.clear()
+              postTitle.text.clear()
+              postDesc.text.clear()
 
             }.addOnFailureListener{err ->
                 Toast.makeText(this,"Error ${err.message}", Toast.LENGTH_LONG).show()
