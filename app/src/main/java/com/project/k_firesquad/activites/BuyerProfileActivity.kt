@@ -4,12 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import com.project.k_firesquad.R
 
 class BuyerProfileActivity : AppCompatActivity() {
 
-    private lateinit var addProductBtn: Button
-    private lateinit var viewMyProducts: Button
+    private lateinit var addProductBtn: ImageButton
+    private lateinit var viewMyProducts: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
