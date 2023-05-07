@@ -13,6 +13,7 @@ import com.project.k_firesquad.models.VehicleData
 import androidx.appcompat.app.AlertDialog
 import com.project.k_firesquad.MainActivity
 import com.project.k_firesquad.MainActivityProfile
+import com.project.k_firesquad.MainActivityVehcileProfile
 
 class addVehicleActivity: AppCompatActivity() {
     private lateinit var vehicleNo:EditText
@@ -102,8 +103,9 @@ class addVehicleActivity: AppCompatActivity() {
                 builder.setMessage("Vehicle added successfully")
 
                 builder.setPositiveButton("OK"){dialog, which ->
-                    val intent=Intent(this, MainActivity::class.java)
+                    val intent=Intent(this, MainActivityVehcileProfile::class.java)
 
+                    // Pass the values to the next activity
                     intent.putExtra("vehicleNo", v_vehicleNo)
                     intent.putExtra("vehicleType", v_vehicleType)
                     intent.putExtra("owner", v_owner)
@@ -111,6 +113,7 @@ class addVehicleActivity: AppCompatActivity() {
                     intent.putExtra("price", v_price)
                     intent.putExtra("about", v_about)
                     intent.putExtra("location", v_location)
+                    intent.putExtra("vehicleId", vehicleId)
 
                     startActivity(intent)
                 }

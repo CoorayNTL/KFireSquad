@@ -3,21 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#E6E3E3"
+    tools:context=".MainActivityVehcileProfile">
+
+    <TextView
+        android:id="@+id/vehicleid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="-NUk8AwZhHKPmsTXl-7c"
+        android:textColor="#615F5F"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="401dp"
-        android:layout_height="572dp"
+        android:layout_width="400dp"
+        android:layout_height="574dp"
+        android:layout_marginTop="9dp"
         android:clickable="true"
         android:contextClickable="true"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.29"
+        app:layout_constraintTop_toBottomOf="@+id/vehicleid"
         tools:ignore="TextSizeCheck">
 
         <LinearLayout
@@ -181,6 +194,7 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnUpdateProfile"
         android:layout_width="355dp"

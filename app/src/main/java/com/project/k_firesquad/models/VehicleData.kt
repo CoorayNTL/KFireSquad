@@ -1,7 +1,7 @@
 package com.project.k_firesquad.models
 
 data class VehicleData(
-    val id:String?=null,
+    val vehicleId:String?=null,
     val vehicleNo:String?=null,
     val vehicleType:String?=null,
     val owner:String?=null,

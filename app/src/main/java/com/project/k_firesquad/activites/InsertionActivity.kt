@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.project.k_firesquad.MainActivity2
@@ -59,83 +60,75 @@ class InsertionActivity: AppCompatActivity() {
         val cmppassword = password.text.toString()
         val cmpusername = username.text.toString()
 
-
-
         // Validation
         if(cmpname.isEmpty()){
             name.error = "Please enter your name"
             return
-
         }
         if(cmpemail.isEmpty()){
             email.error = "Please enter your email"
             return
-
-
         }
         if(cmpmobile.isEmpty()){
             mobile.error = "Please enter your mobile"
             return
-
         }
         if(cmpaddress.isEmpty()){
             address.error = "Please enter your address"
             return
-
         }
         if(cmppassword.isEmpty()){
             password.error = "Please enter your password"
             return
-
         }
         if(cmpusername.isEmpty()){
             username.error = "Please enter your username"
             return
-
         }
 
+        // Create a user account in Firebase Authentication
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(cmpemail, cmppassword)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val userId = FirebaseAuth.getInstance().currentUser!!.uid
+                    val user = CompanyData(userId, cmpusername, cmppassword, cmpname, cmpemail, cmpmobile, cmpaddress)
 
+                    // Save the user's data to the Firebase Realtime Database
+                    FirebaseDatabase.getInstance().getReference("Users").child(userId).setValue(user)
+                        .addOnCompleteListener {
+                            val builder=AlertDialog.Builder(this)
+                            builder.setTitle("Success")
+                            builder.setMessage("User added successfully")
 
-        val userId = dbRef.push().key!!
+                            builder.setPositiveButton("OK"){dialog, which ->
+                                val intent= Intent(this,MainActivity2::class.java)
 
-        val user = CompanyData(userId,cmpusername,cmppassword ,cmpname, cmpemail, cmpmobile, cmpaddress)
+                                //passing data to next activity
+                                intent.putExtra("company_name", cmpname)
+                                intent.putExtra("email", cmpemail)
+                                intent.putExtra("contact", cmpmobile)
+                                intent.putExtra("address", cmpaddress)
+                                intent.putExtra("username", cmpusername)
 
-        dbRef.child(userId).setValue(user).addOnCompleteListener {task->
-//            Toast.makeText(this, "User added successfully", Toast.LENGTH_SHORT).show()
-
-            if(task.isSuccessful){
-                val builder=AlertDialog.Builder(this)
-                builder.setTitle("Success")
-                builder.setMessage("User added successfully")
-
-                builder.setPositiveButton("OK"){dialog, which ->
-                    val intent= Intent(this,MainActivityProfile::class.java)
-
-                    intent.putExtra("company_name", cmpname)
-                    intent.putExtra("email", cmpemail)
-                    intent.putExtra("contact", cmpmobile)
-                    intent.putExtra("address", cmpaddress)
-                    intent.putExtra("username", cmpusername)
-
-                    startActivity(intent)
+                                startActivity(intent)
+                            }
+                            val dialog=builder.create()
+                            dialog.show()
+                        }
+                        .addOnFailureListener { error ->
+                            val builder=AlertDialog.Builder(this)
+                            builder.setTitle("Failed")
+                            builder.setMessage("Failed to add user")
+                            builder.setPositiveButton("OK"){
+                                    dialog,which->
+                                dialog.dismiss()
+                            }
+                        }
+                } else {
+                    Toast.makeText(this, "Failed to create user account", Toast.LENGTH_SHORT).show()
                 }
-                val dialog=builder.create()
-                dialog.show()
             }
-
-//            val intent = Intent(this,MainActivity2::class.java)
-//            startActivity(intent)
-        }.addOnFailureListener(){error->
-//            Toast.makeText(this, "Failed to add user", Toast.LENGTH_SHORT).show()
-            val builder=AlertDialog.Builder(this)
-            builder.setTitle("Failed")
-            builder.setMessage("Failed to add user")
-            builder.setPositiveButton("OK"){
-                dialog,which->
-                dialog.dismiss()
-            }
-            }
-        }
+    }
 //
 //        if (userId != null) {
 //            dbRef.child(userId).setValue(user).addOnCompleteListener {
