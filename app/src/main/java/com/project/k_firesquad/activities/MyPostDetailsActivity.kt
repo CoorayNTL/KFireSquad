@@ -4,10 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.database.FirebaseDatabase
 import com.project.k_firesquad.R
@@ -20,6 +17,7 @@ class MyPostDetailsActivity : AppCompatActivity() {
     private lateinit var tvPostDesc: TextView
     private lateinit var btnEditPost: Button
     private lateinit var btnDeletePost: Button
+    private lateinit var like: CheckBox
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +40,22 @@ class MyPostDetailsActivity : AppCompatActivity() {
                 intent.getStringExtra("postID").toString()
             )
         }
+
+        like = findViewById(R.id.like)
+        like.setOnCheckedChangeListener{ checkBox, isChecked ->
+
+            if(isChecked){
+                showToast("Like added to the image")
+            }else{
+                showToast("Like removed from the image")
+            }
+
+        }
+
+    }
+
+    private fun showToast(str:String){
+        Toast.makeText(this,str,Toast.LENGTH_LONG).show()
     }
 
     private fun deleteRecord(

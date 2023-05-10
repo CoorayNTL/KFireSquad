@@ -13,12 +13,14 @@
         android:text="Add Post"
         android:textColor="#040303"
         android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.089" />
+
 
     <TextView
         android:id="@+id/txtPostTitle"
@@ -64,6 +66,7 @@
 
     <EditText
         android:id="@+id/enterPostDes"
+        android:keyboardNavigationCluster="true"
         android:layout_width="290dp"
         android:layout_height="78dp"
         android:ems="10"
