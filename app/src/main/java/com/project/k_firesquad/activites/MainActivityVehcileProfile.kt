@@ -1,4 +1,4 @@
-package com.project.k_firesquad
+package com.project.k_firesquad.activites
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.project.k_firesquad.R
 
 class MainActivityVehcileProfile : AppCompatActivity() {
     
@@ -85,7 +86,8 @@ class MainActivityVehcileProfile : AppCompatActivity() {
                             dbRef.child(userKey).removeValue().addOnSuccessListener {
                                 Toast.makeText(this@MainActivityVehcileProfile, "Account Deleted Successfully", Toast.LENGTH_SHORT).show()
                                 FirebaseAuth.getInstance().signOut()
-                                val intent = Intent(this@MainActivityVehcileProfile,MainActivityProfile::class.java)
+                                val intent = Intent(this@MainActivityVehcileProfile,
+                                    DriverActivityProfile::class.java)
                                 startActivity(intent)
                                 finish()
                             }.addOnFailureListener {

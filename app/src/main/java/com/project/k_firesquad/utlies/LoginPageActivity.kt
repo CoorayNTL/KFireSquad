@@ -1,4 +1,4 @@
-package com.project.k_firesquad
+package com.project.k_firesquad.utlies
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,9 +9,11 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.project.k_firesquad.activites.InsertionActivity
+import com.project.k_firesquad.activites.DriverActivityProfile
+import com.project.k_firesquad.R
+import com.project.k_firesquad.activites.RegisterActivity
 
-class MainActivity2 : AppCompatActivity() {
+class LoginPageActivity : AppCompatActivity() {
 
     private lateinit var regButton:Button
     private lateinit var loginButton:Button
@@ -38,39 +40,43 @@ class MainActivity2 : AppCompatActivity() {
         }
 
         regButton.setOnClickListener {
-            val intent = Intent(this, InsertionActivity::class.java)
+            val intent = Intent(this, RegisterActivity::class.java)
 
             startActivity(intent)
         }
 
     }
 
+    // Login the user
     private fun loginChecker( ) {
         val usernameInput = email.text.toString().trim()
         val passwordInput = password.text.toString().trim()
 
+        // Check if the username and password fields are not empty
         if (usernameInput.isEmpty()) {
             email.error = "email is required"
             email.requestFocus()
             return
         }
 
+        // Check if the username and password fields are not empty
         if (passwordInput.isEmpty()) {
             password.error = "Password is required"
             password.requestFocus()
             return
         }
 
+        // Login the user
         FirebaseAuth.getInstance().signInWithEmailAndPassword(usernameInput, passwordInput)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     // Login successful. Start the MainActivityProfile activity
-                    val intent = Intent(this@MainActivity2, MainActivityProfile::class.java)
+                    val intent = Intent(this@LoginPageActivity, DriverActivityProfile::class.java)
                     startActivity(intent)
                     finish()
                 } else {
                     // Login failed. Show an error message
-                    Toast.makeText(this@MainActivity2, "Login failed. Please check your credentials and try again.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LoginPageActivity, "Login failed. Please check your credentials and try again.", Toast.LENGTH_SHORT).show()
                 }
             }
     }

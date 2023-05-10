@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E6E3E3"
-    tools:context=".MainActivityVehcileProfile">
+    tools:context=".activites.MainActivityVehcileProfile">
 
     <TextView
         android:id="@+id/vehicleid"

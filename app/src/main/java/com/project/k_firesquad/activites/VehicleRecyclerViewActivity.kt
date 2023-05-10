@@ -1,13 +1,14 @@
-package com.project.k_firesquad
+package com.project.k_firesquad.activites
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.project.k_firesquad.R
 import com.project.k_firesquad.adapter.DriverAdapter
 import com.project.k_firesquad.databinding.ActivityMainBinding
 import com.project.k_firesquad.models.DataItem
 
-class MainActivity : AppCompatActivity() {
+class VehicleRecyclerViewActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var mList: ArrayList<DataItem>

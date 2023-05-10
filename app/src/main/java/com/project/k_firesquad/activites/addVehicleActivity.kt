@@ -4,16 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.project.k_firesquad.R
 import com.project.k_firesquad.models.VehicleData
 import androidx.appcompat.app.AlertDialog
-import com.project.k_firesquad.MainActivity
-import com.project.k_firesquad.MainActivityProfile
-import com.project.k_firesquad.MainActivityVehcileProfile
 
 class addVehicleActivity: AppCompatActivity() {
     private lateinit var vehicleNo:EditText

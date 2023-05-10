@@ -1,23 +1,27 @@
 package com.project.k_firesquad.activites
 
+import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.project.k_firesquad.MainActivity2
-import com.project.k_firesquad.MainActivityProfile
+import com.project.k_firesquad.utlies.LoginPageActivity
 import com.project.k_firesquad.R
 import com.project.k_firesquad.models.CompanyData
 
-class InsertionActivity: AppCompatActivity() {
+class RegisterActivity: AppCompatActivity() {
 
     private lateinit var name:EditText
     private lateinit var mobile:EditText
@@ -28,6 +32,12 @@ class InsertionActivity: AppCompatActivity() {
     private lateinit var username:EditText
 
     private lateinit var dbRef: DatabaseReference
+
+    lateinit var notificationManager: NotificationManager
+    lateinit var notificationChannel: NotificationChannel
+    lateinit var builder: Notification.Builder
+    private val channelId="my_channel_01"
+    private val description="AGRO Notification"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +51,20 @@ class InsertionActivity: AppCompatActivity() {
         submit= findViewById(R.id.submitButton) //submit button
         password = findViewById(R.id.password) //company password
         username = findViewById(R.id.username) //company username
+
+        notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            notificationChannel = NotificationChannel(
+                channelId,
+                description,
+                NotificationManager.IMPORTANCE_HIGH
+            )
+            notificationChannel.enableLights(true)
+            notificationChannel.lightColor = Color.GREEN
+            notificationChannel.enableVibration(false)
+            notificationManager.createNotificationChannel(notificationChannel)
+        }
 
 
         dbRef = FirebaseDatabase.getInstance().getReference("Users")
@@ -101,7 +125,7 @@ class InsertionActivity: AppCompatActivity() {
                             builder.setMessage("User added successfully")
 
                             builder.setPositiveButton("OK"){dialog, which ->
-                                val intent= Intent(this,MainActivity2::class.java)
+                                val intent= Intent(this, LoginPageActivity::class.java)
 
                                 //passing data to next activity
                                 intent.putExtra("company_name", cmpname)
@@ -110,6 +134,7 @@ class InsertionActivity: AppCompatActivity() {
                                 intent.putExtra("address", cmpaddress)
                                 intent.putExtra("username", cmpusername)
 
+                                showNotification()
                                 startActivity(intent)
                             }
                             val dialog=builder.create()
@@ -128,6 +153,27 @@ class InsertionActivity: AppCompatActivity() {
                     Toast.makeText(this, "Failed to create user account", Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    private fun showNotification() {
+        val intent = Intent(this,LoginPageActivity::class.java)
+        val pendingIntent = PendingIntent.getActivity(
+            this,
+            0,
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            builder=Notification.Builder(this,channelId)
+                .setContentTitle("AGRO")
+                .setContentText("User added successfully")
+                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
+        }
+
+        notificationManager.notify(1234, builder.build())
     }
 //
 //        if (userId != null) {

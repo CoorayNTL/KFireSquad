@@ -7,8 +7,8 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.project.k_firesquad.activites.DriverActivityProfile
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -25,9 +25,9 @@ class RentalCompanyAddVehicleActivityTest {
     @Test
     fun testTvHeaderAddNewVehiclePage(){
         //start activity
-       val intent= Intent(ApplicationProvider.getApplicationContext(),MainActivityProfile::class.java)
+       val intent= Intent(ApplicationProvider.getApplicationContext(), DriverActivityProfile::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        val activityScenario= ActivityScenario.launch<MainActivityProfile>(intent)
+        val activityScenario= ActivityScenario.launch<DriverActivityProfile>(intent)
 
 
         //find and click the add new vehicle button

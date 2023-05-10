@@ -1,4 +1,4 @@
-package com.project.k_firesquad
+package com.project.k_firesquad.activites
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,10 +8,10 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.project.k_firesquad.activites.addVehicleActivity
-import com.project.k_firesquad.activites.profileUpdateActivity
+import com.project.k_firesquad.R
+import com.project.k_firesquad.utlies.LoginPageActivity
 
-class MainActivityProfile : AppCompatActivity() {
+class DriverActivityProfile : AppCompatActivity() {
 
     private lateinit var btnAddVehicle: Button
     private lateinit var btnUpdateProfile: Button
@@ -113,13 +113,13 @@ class MainActivityProfile : AppCompatActivity() {
         val userId = FirebaseAuth.getInstance().currentUser!!.uid
 
         dbRef.child(userId).removeValue().addOnSuccessListener {
-            Toast.makeText(this@MainActivityProfile, "Account Deleted Successfully", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@DriverActivityProfile, "Account Deleted Successfully", Toast.LENGTH_SHORT).show()
             FirebaseAuth.getInstance().signOut()
-            val intent = Intent(this@MainActivityProfile, MainActivity2::class.java)
+            val intent = Intent(this@DriverActivityProfile, LoginPageActivity::class.java)
             startActivity(intent)
             finish()
         }.addOnFailureListener {
-            Toast.makeText(this@MainActivityProfile, "Error Occurred", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@DriverActivityProfile, "Error Occurred", Toast.LENGTH_SHORT).show()
         }
     }
 
