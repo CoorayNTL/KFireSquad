@@ -9,6 +9,7 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.project.k_firesquad.activities.ExpertsProfileActivity
 import com.project.k_firesquad.activities.MainActivity
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -23,9 +24,9 @@ class MyPostsInstrumentedTest {
     fun testTvHeaderExpertActions() {
 
         // Start the activity
-        val intent = Intent(ApplicationProvider.getApplicationContext(), MainActivity::class.java)
+        val intent = Intent(ApplicationProvider.getApplicationContext(), ExpertsProfileActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        val activityScenario = ActivityScenario.launch<MainActivity>(intent)
+        val activityScenario = ActivityScenario.launch<ExpertsProfileActivity>(intent)
 
         // Find and click the view posts button
         onView(withId(R.id.btnExpertsActions)).perform(click())
