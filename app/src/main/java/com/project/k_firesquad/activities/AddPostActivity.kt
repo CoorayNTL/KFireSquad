@@ -42,6 +42,21 @@ class AddPostActivity : AppCompatActivity() {
         dbRef = FirebaseDatabase.getInstance().getReference("Posts")
 
         btnAddPost.setOnClickListener(){
+
+            //to add form validation
+            val tvPostTitle = postTitle.text.toString().trim()
+            val tvPostDesc = postDesc.text.toString().trim()
+
+            if(tvPostTitle.isEmpty()){
+                postTitle.error = "Post title is required"
+                return@setOnClickListener
+            }else if(tvPostDesc.isEmpty()){
+                 postDesc.error = "Post description is required"
+                return@setOnClickListener
+            }else{
+                Toast.makeText(this, "Validation Completed",Toast.LENGTH_LONG).show()
+            }
+
             savePostsData()
             showNotification()
         }
@@ -61,6 +76,7 @@ class AddPostActivity : AppCompatActivity() {
         }
     }
 
+    //to show a notification when adding a post
     private fun showNotification() {
         val intent = Intent(this, MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(
@@ -80,6 +96,7 @@ class AddPostActivity : AppCompatActivity() {
         notificationManager.notify(1234, builder.build())
     }
 
+    //to save post details in database
     private fun savePostsData(){
         //getting values
         val tvPostTitle = postTitle.text.toString()
