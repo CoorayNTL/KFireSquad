@@ -35,4 +35,33 @@
     <string name="location" />
     <string name="buyer_details_activity_title"></string>
     <string name="seller_details_activity_title" />
+
+
+
+
+    <string name="vehicle_no">Vehicle No:</string>
+    <string name="car_1234">CAR-1234</string>
+    <string name="_2_axl_lorry">2-Axl-Lorry</string>
+    <string name="company">Company:</string>
+    <string name="abc_company">ABC Company</string>
+    <string name="price_per_1_km">Price: (per 1 Km)</string>
+    <string name="rs_1000">Rs. 1000</string>
+    <string name="description">Description:</string>
+    <string name="this_lorry_can_handle_max_weight_of_5000kg">This lorry can handle max weight of 5000Kg</string>
+
+    <string name="colombo">Colombo</string>
+    <string name="sign_up">Sign Up</string>
+
+    <string name="profile">Profile</string>
+    <string name="address">Address</string>
+    <string name="contact2">contact</string>
+    <string name="email">email</string>
+    <string name="comapny_name">comapny name</string>
+    <string name="username">username</string>
+    <string name="username1">Username :</string>
+    <string name="company_name">Company Name:</string>
+    <string name="email1">Email :</string>
+    <string name="contact_no">Contact No :</string>
+    <string name="address1">Address :</string>
+
 </resources>

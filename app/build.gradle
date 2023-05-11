@@ -49,6 +49,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.10.0'
     implementation 'com.google.firebase:firebase-storage-ktx:20.1.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'com.google.firebase:firebase-auth-ktx:22.0.0'
     testImplementation 'org.mockito:mockito-core:3.11.2'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
