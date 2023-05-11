@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.database.FirebaseDatabase
@@ -18,6 +19,7 @@ class MyPostDetailsActivity : AppCompatActivity() {
     private lateinit var btnEditPost: Button
     private lateinit var btnDeletePost: Button
     private lateinit var like: CheckBox
+    private lateinit var textView :TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +53,13 @@ class MyPostDetailsActivity : AppCompatActivity() {
             }
 
         }
+
+    }
+
+    fun incrementValue(view: View) {
+        textView = findViewById(R.id.textView)
+        var i = textView.text.toString().toInt()
+        textView.setText("${++i}")
 
     }
 

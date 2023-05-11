@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="left"
         android:gravity="center"
+        android:layout_marginTop="50dp"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -23,14 +24,16 @@
 
             <TextView
                 android:id="@+id/tvPostTitle"
-                android:layout_width="314dp"
+                android:layout_width="269dp"
                 android:layout_height="66dp"
                 android:layout_gravity="left"
+                android:layout_marginStart="100dp"
                 android:gravity="top"
                 android:text="Post Title"
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold" />
+
         </LinearLayout>
 
     </LinearLayout>
