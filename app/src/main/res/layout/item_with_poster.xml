@@ -57,7 +57,7 @@
 
 
             <TextView
-                android:id="@+id/vehicle_type"
+                android:id="@+id/vehicleType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
@@ -79,7 +79,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/item_company"
+                android:id="@+id/vehicleOwner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
@@ -101,7 +101,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/item_price"
+                android:id="@+id/vehiclePrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
@@ -123,7 +123,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/item_description"
+                android:id="@+id/vehicleDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
@@ -145,7 +145,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/item_contact"
+                android:id="@+id/vehicleContact"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
@@ -167,7 +167,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/item_location"
+                android:id="@+id/vehicleLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"

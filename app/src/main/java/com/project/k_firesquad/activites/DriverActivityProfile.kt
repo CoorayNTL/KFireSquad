@@ -23,6 +23,7 @@ class DriverActivityProfile : AppCompatActivity() {
     private lateinit var companyNameTextView: TextView
     private lateinit var databaseReference: DatabaseReference
     private lateinit var btnLogout: Button
+    private lateinit var btnViewVehicles: Button
 
 
 
@@ -36,11 +37,17 @@ class DriverActivityProfile : AppCompatActivity() {
         btnUpdateProfile = findViewById(R.id.btnUpdateProfile)
         btnDeleteAccount = findViewById(R.id.btnDeleteAccount)
         btnLogout = findViewById(R.id.btnLogout)
+        btnViewVehicles = findViewById(R.id.btnViewVehicles)
 
         btnAddVehicle.setOnClickListener {
             val intent = Intent(this, addVehicleActivity::class.java)
             startActivity(intent)
 
+        }
+
+        btnViewVehicles.setOnClickListener {
+            val intent = Intent(this, VehicleRecyclerViewActivity::class.java)
+            startActivity(intent)
         }
 
         btnUpdateProfile.setOnClickListener {

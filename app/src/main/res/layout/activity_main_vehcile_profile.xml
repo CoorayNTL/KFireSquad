@@ -198,7 +198,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnUpdateProfile"
         android:layout_width="355dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_marginStart="28dp"
         android:layout_marginEnd="28dp"
         android:backgroundTint="#FF9800"
@@ -210,13 +210,27 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnDeleteAccount"
         android:layout_width="355dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_marginStart="28dp"
         android:layout_marginEnd="28dp"
         android:backgroundTint="#F44336"
         android:text="Delete Details"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnUpdateProfile" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnBacktoprofile"
+        android:layout_width="355dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
+        android:backgroundTint="@color/green"
+        android:text="Back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDeleteAccount" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

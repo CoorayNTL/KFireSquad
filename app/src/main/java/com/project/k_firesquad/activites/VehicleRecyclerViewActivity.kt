@@ -3,16 +3,17 @@ package com.project.k_firesquad.activites
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.project.k_firesquad.R
+import com.google.firebase.database.*
 import com.project.k_firesquad.adapter.DriverAdapter
 import com.project.k_firesquad.databinding.ActivityMainBinding
-import com.project.k_firesquad.models.DataItem
+import com.project.k_firesquad.models.VehicleData
 
 class VehicleRecyclerViewActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var mList: ArrayList<DataItem>
-
+    private lateinit var adapter: DriverAdapter
+    private lateinit var vehicleDataList: ArrayList<VehicleData>
+    private lateinit var database: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,79 +24,26 @@ class VehicleRecyclerViewActivity : AppCompatActivity() {
         binding.recycleView.setHasFixedSize(true)
         binding.recycleView.layoutManager = LinearLayoutManager(this)
 
-        mList = ArrayList()
-        prepareData()
-
-
-        val adapter = DriverAdapter(mList)
+        vehicleDataList = ArrayList()
+        adapter = DriverAdapter(vehicleDataList)
         binding.recycleView.adapter = adapter
 
-    }
+        database = FirebaseDatabase.getInstance().reference.child("vehicles")
+        database.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                vehicleDataList.clear()
+                for (vehicleSnapshot in snapshot.children) {
+                    val vehicleData = vehicleSnapshot.getValue(VehicleData::class.java)
+                    vehicleData?.let {
+                        vehicleDataList.add(it)
+                    }
+                }
+                adapter.notifyDataSetChanged()
+            }
 
-    private fun prepareData() {
-        mList.add(
-            DataItem(
-                R.drawable.truck1,
-                "TN 01 2345",
-                "2-Axl-Lorry",
-                "ABC Company",
-                10000,
-                "We provide professional moving services for residential and commercial customers",
-                "9876543210",
-                "Chennai"
-            )
-        )
-
-        mList.add(
-            DataItem(
-                R.drawable.truck2,
-                "TN 01 2345",
-                "2-Axl-Lorry",
-                "ABC Company",
-                10000,
-                "We provide professional moving services for residential and commercial customers",
-                "9876543210",
-                "Chennai"
-            )
-        )
-
-        mList.add(
-            DataItem(
-                R.drawable.truck3,
-                "TN 01 2345",
-                "2-Axl-Lorry",
-                "ABC Company",
-                10000,
-                "We provide professional moving services for residential and commercial customers",
-                "9876543210",
-                "Chennai"
-            )
-        )
-
-        mList.add(
-            DataItem(
-                R.drawable.truck4,
-                "TN 01 2345",
-                "2-Axl-Lorry",
-                "ABC Company",
-                10000,
-                "We provide professional moving services for residential and commercial customers",
-                "9876543210",
-                "Chennai"
-            )
-        )
-
-        mList.add(
-            DataItem(
-                R.drawable.truck5,
-                "TN 01 2345",
-                "2-Axl-Lorry",
-                "ABC Company",
-                10000,
-                "We provide professional moving services for residential and commercial customers",
-                "9876543210",
-                "Chennai"
-            )
-        )
+            override fun onCancelled(error: DatabaseError) {
+                // Handle error
+            }
+        })
     }
 }

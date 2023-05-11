@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.project.k_firesquad.R
+import com.project.k_firesquad.utlies.LoginPageActivity
 
 class MainActivityVehcileProfile : AppCompatActivity() {
     
@@ -20,6 +21,7 @@ class MainActivityVehcileProfile : AppCompatActivity() {
     private lateinit var about:TextView
     private lateinit var location:TextView
     private lateinit var id:TextView
+    private lateinit var btnBacktoprofile:Button
 
     
     private lateinit var btnUpdateVehicle: Button
@@ -36,6 +38,7 @@ class MainActivityVehcileProfile : AppCompatActivity() {
         
         btnUpdateVehicle = findViewById(R.id.btnUpdateProfile)
         btnDeleteVehicle = findViewById(R.id.btnDeleteAccount)
+        btnBacktoprofile = findViewById(R.id.btnBacktoprofile)
         
         
         btnUpdateVehicle.setOnClickListener {
@@ -45,6 +48,11 @@ class MainActivityVehcileProfile : AppCompatActivity() {
         
         btnDeleteVehicle.setOnClickListener {
             deleteRecord(intent.getStringExtra("vehicleId").toString())
+        }
+
+        btnBacktoprofile.setOnClickListener {
+            val intent = Intent(this, DriverActivityProfile::class.java)
+            startActivity(intent)
         }
 
 
@@ -85,11 +93,10 @@ class MainActivityVehcileProfile : AppCompatActivity() {
                         if (userKey != null) {
                             dbRef.child(userKey).removeValue().addOnSuccessListener {
                                 Toast.makeText(this@MainActivityVehcileProfile, "Account Deleted Successfully", Toast.LENGTH_SHORT).show()
-                                FirebaseAuth.getInstance().signOut()
-                                val intent = Intent(this@MainActivityVehcileProfile,
-                                    DriverActivityProfile::class.java)
-                                startActivity(intent)
-                                finish()
+//                                FirebaseAuth.getInstance().signOut()
+//                                val intent = Intent(this@MainActivityVehcileProfile,DriverActivityProfile::class.java)
+//                                startActivity(intent)
+//                                finish()
                             }.addOnFailureListener {
                                 Toast.makeText(this@MainActivityVehcileProfile, "Error Occurred", Toast.LENGTH_SHORT).show()
                             }

@@ -157,18 +157,31 @@
         app:layout_constraintTop_toBottomOf="@+id/mobileTextView" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnViewVehicles"
+        android:layout_width="355dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="28dp"
+        android:backgroundTint="@color/green"
+        android:text="View vehicles"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressTextView" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAddVehicle"
         android:layout_width="355dp"
         android:layout_height="50dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="84dp"
         android:layout_marginEnd="28dp"
         android:backgroundTint="@color/green"
         android:text="Add New Vehicle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addressTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/btnViewVehicles" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogout"

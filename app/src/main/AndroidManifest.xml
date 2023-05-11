@@ -12,9 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KFireSquad"
         tools:targetApi="31">
-        <activity
-            android:name=".LoginPage"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".LoginPage"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".activites.MainActivityVehcileProfile"
             android:exported="false" />
