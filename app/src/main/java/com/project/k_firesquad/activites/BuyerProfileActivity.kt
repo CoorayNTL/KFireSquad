@@ -1,38 +1,41 @@
 package com.project.k_firesquad.activites
 
-import android.annotation.SuppressLint
 import android.content.Intent
-import android.os.Bundle
-import android.util.Log
-import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.ImageButton
 import com.project.k_firesquad.R
 
-class SellerProfileActivity : AppCompatActivity() {
+class BuyerProfileActivity : AppCompatActivity() {
 
+    //variables
     private lateinit var addProductBtn: ImageButton
     private lateinit var viewMyProducts: ImageButton
     private lateinit var marketPlace: ImageButton
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_farmer_nav)
+        setContentView(R.layout.activity_buyer_profile)
 
-        addProductBtn = findViewById(R.id.addSellerProduct)
-        viewMyProducts = findViewById(R.id.viewSellerProducts)
+        //initialize variables
+        addProductBtn = findViewById(R.id.addBuyerProduct)
+        viewMyProducts = findViewById(R.id.viewBuyerProducts)
         marketPlace = findViewById(R.id.marketPlace)
-        Log.d("hello", "intent.toString()")
+
+        //send the user to BuyerAddProduct screen
         addProductBtn.setOnClickListener {
-            val intent = Intent(this, SellerAddProductActivity::class.java)
-            Log.d("hello", "intent.toString()")
+            val intent = Intent(this, BuyerAddProductActivity::class.java)
             startActivity(intent)
         }
+
+        //send the user to BuyerProductsList screen
         viewMyProducts.setOnClickListener {
-            val intent = Intent(this, SellerProductsListActivity::class.java)
+            val intent = Intent(this, BuyerProductsListActivity::class.java)
             startActivity(intent)
         }
+
+        //send the user to BuyerMarketPlace screen
         marketPlace.setOnClickListener {
-            val intent = Intent(this, SellerMarketPlaceActivity::class.java)
+            val intent = Intent(this, BuyerMarketPlaceActivity::class.java)
             startActivity(intent)
         }
 

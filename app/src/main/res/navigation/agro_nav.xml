@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/agro_nav"
+    app:startDestination="@id/agroExpert_nav">
+
+    <fragment
+        android:id="@+id/farmer_nav"
+        android:name="com.project.k_firesquad.Farmer_nav"
+
+        android:label="fragment_farmer_nav"
+        tools:layout="@layout/fragment_farmer_nav" />
+    <fragment
+        android:id="@+id/buyer_nav"
+        android:name="com.project.k_firesquad.Buyer_nav"
+        android:label="fragment_buyer_nav"
+        tools:layout="@layout/fragment_buyer_nav" />
+    <fragment
+        android:id="@+id/driver_nav"
+        android:name="com.project.k_firesquad.Driver_nav"
+        android:label="fragment_driver_nav"
+        tools:layout="@layout/fragment_driver_nav" />
+    <fragment
+        android:id="@+id/agroExpert_nav"
+        android:name="com.project.k_firesquad.AgroExpert_nav"
+        android:label="fragment_agro_expert_nav"
+        tools:layout="@layout/fragment_agro_expert_nav" />
+</navigation>

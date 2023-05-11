@@ -9,7 +9,7 @@ import org.mockito.Mock
 import org.mockito.Mockito.*
 import org.mockito.MockitoAnnotations
 
-class ProductQuantityUpdaterTest {
+class SellerProductQuantityUpdaterTest {
 
     @Mock
     lateinit var listener: ProductQuantityUpdateListener

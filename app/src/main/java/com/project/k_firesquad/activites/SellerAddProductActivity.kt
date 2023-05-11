@@ -1,15 +1,12 @@
 package com.project.k_firesquad.activites
 
-import android.app.DatePickerDialog
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -17,8 +14,6 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.project.k_firesquad.R
 import com.project.k_firesquad.models.SellerProduct
-import java.text.SimpleDateFormat
-import java.util.*
 
 class SellerAddProductActivity : AppCompatActivity() {
 
@@ -56,17 +51,17 @@ class SellerAddProductActivity : AppCompatActivity() {
         }
 
         //Pick Image from Gallery
-        val pickImage = registerForActivityResult(ActivityResultContracts.GetContent()) {
-            btnUploadImage.setImageURI(it)
-            if (it != null) {
-                uri = it
-            }
-        }
-
-        //store image in storage
-        btnUploadImage.setOnClickListener {
-            pickImage.launch("image/*")
-        }
+//        val pickImage = registerForActivityResult(ActivityResultContracts.GetContent()) {
+//            btnUploadImage.setImageURI(it)
+//            if (it != null) {
+//                uri = it
+//            }
+//        }
+//
+//        //store image in storage
+//        btnUploadImage.setOnClickListener {
+//            pickImage.launch("image/*")
+//        }
 
 
     }
@@ -142,40 +137,30 @@ class SellerAddProductActivity : AppCompatActivity() {
                         sellerID,
 
                     )
-        uri.let {
-
-            storageRef.child(sellerProductID).putFile(it!!).addOnSuccessListener { task ->
-
-                task.metadata!!.reference!!.downloadUrl.addOnSuccessListener { uri ->
-
-                    Toast.makeText(this, "Image Uploaded", Toast.LENGTH_SHORT).show()
-                    val ImageUrlsellerProduct = uri.toString()
-
-                    val sellerProduct = SellerProduct(
-                        sellerProductID,
-                        productName,
-                        productQty,
-                        productRate,
-                        description,
-                        sellerName,
-                        sellerLocation,
-                        sellerID,
-                        ImageUrlsellerProduct,
-                    )
-
-
-                }
-            }
-            dbRef.child(sellerProductID).setValue(sellerProduct).addOnCompleteListener {
-                Toast.makeText(this, "Added Product", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, SellerProfileActivity::class.java)
-                startActivity(intent)
-            }.addOnFailureListener { error ->
-                Toast.makeText(this, "${error.message}", Toast.LENGTH_SHORT).show()
-            }
-
+//        uri.let {
+//
+//            storageRef.child(sellerProductID).putFile(it!!).addOnSuccessListener { task ->
+//
+//                task.metadata!!.reference!!.downloadUrl.addOnSuccessListener { uri ->
+//
+//                    Toast.makeText(this, "Image Uploaded", Toast.LENGTH_SHORT).show()
+//                    val ImageUrlsellerProduct = uri.toString()
+//
+//
+//
+//
+//                }
+//            }
+//
+//
+//        }
+        dbRef.child(sellerProductID).setValue(sellerProduct).addOnCompleteListener {
+            Toast.makeText(this, "Added Product", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, SellerProfileActivity::class.java)
+            startActivity(intent)
+        }.addOnFailureListener { error ->
+            Toast.makeText(this, "${error.message}", Toast.LENGTH_SHORT).show()
         }
-
 
 
 //        return "$productName $productQty $productRate $description $sellerName $sellerLocation $offerStartDate $offerEndDate"

@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">K-Fire Squad</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="delver">Delver</string>
+    <string name="agroexpert">AgroExpert</string>
+    <string name="buyer">Buyer</string>
+    <string name="farmer">Farmer</string>
     <string name="cotton">Cotton</string>
     <string name="rate">Rate</string>
     <string name="more_details">More-Details</string>
@@ -28,5 +33,6 @@
     <string name="this_is_a_tab_layout_with_several_tabs_to_switch_between_different_views">This is a tab layout with several tabs to switch between different views</string>
     <string name="required" />
     <string name="location" />
+    <string name="buyer_details_activity_title"></string>
     <string name="seller_details_activity_title" />
 </resources>
