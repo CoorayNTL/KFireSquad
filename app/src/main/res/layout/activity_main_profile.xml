@@ -161,7 +161,7 @@
         android:layout_width="355dp"
         android:layout_height="50dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="84dp"
         android:layout_marginEnd="28dp"
         android:backgroundTint="@color/green"
         android:text="Add New Vehicle"
@@ -169,6 +169,20 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addressTextView" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogout"
+        android:layout_width="355dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="28dp"
+        android:backgroundTint="@color/green"
+        android:text="Log Out"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddVehicle" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnUpdateProfile"
@@ -180,7 +194,7 @@
         android:text="Update Account"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAddVehicle" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLogout" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnDeleteAccount"

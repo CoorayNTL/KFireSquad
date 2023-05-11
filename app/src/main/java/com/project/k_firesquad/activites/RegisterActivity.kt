@@ -148,6 +148,9 @@ class RegisterActivity: AppCompatActivity() {
                                     dialog,which->
                                 dialog.dismiss()
                             }
+
+                            val dialog=builder.create()
+                            dialog.show()
                         }
                 } else {
                     Toast.makeText(this, "Failed to create user account", Toast.LENGTH_SHORT).show()

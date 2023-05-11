@@ -22,6 +22,9 @@ class DriverActivityProfile : AppCompatActivity() {
     private lateinit var addressTextView: TextView
     private lateinit var companyNameTextView: TextView
     private lateinit var databaseReference: DatabaseReference
+    private lateinit var btnLogout: Button
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +35,7 @@ class DriverActivityProfile : AppCompatActivity() {
         btnAddVehicle = findViewById(R.id.btnAddVehicle)
         btnUpdateProfile = findViewById(R.id.btnUpdateProfile)
         btnDeleteAccount = findViewById(R.id.btnDeleteAccount)
+        btnLogout = findViewById(R.id.btnLogout)
 
         btnAddVehicle.setOnClickListener {
             val intent = Intent(this, addVehicleActivity::class.java)
@@ -47,6 +51,14 @@ class DriverActivityProfile : AppCompatActivity() {
         btnDeleteAccount.setOnClickListener {
             deleteRecord()
         }
+
+        btnLogout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this@DriverActivityProfile, LoginPageActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
 
         //initialize the Text Views
         usernameTextView = findViewById(R.id.usernameTextView)
@@ -101,6 +113,7 @@ class DriverActivityProfile : AppCompatActivity() {
 
             override fun onCancelled(databaseError: DatabaseError) {
                 // Handle error
+
             }
         })
 
