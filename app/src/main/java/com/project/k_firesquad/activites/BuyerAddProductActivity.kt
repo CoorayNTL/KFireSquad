@@ -174,7 +174,6 @@ class BuyerAddProductActivity : AppCompatActivity() {
 
 
 
-//        return "$productName $productQty $productRate $description $sellerName $sellerLocation $offerStartDate $offerEndDate"
     }
 
 }
