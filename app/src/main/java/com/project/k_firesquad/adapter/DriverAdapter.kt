@@ -1,45 +1,49 @@
 package com.project.k_firesquad.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.project.k_firesquad.databinding.ItemWithPosterBinding
+import com.project.k_firesquad.R
 import com.project.k_firesquad.models.VehicleData
 
-const val ITEM_WITH_POSTER = 0
 
-class DriverAdapter(private val mList: List<VehicleData>) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class DriverAdapter(private val empList:ArrayList<VehicleData>):RecyclerView.Adapter<DriverAdapter.ViewHolder>(){
 
-    inner class ItemWithPosterViewHolder(private val binding: ItemWithPosterBinding) :
-        RecyclerView.ViewHolder(binding.root) {
 
-        fun bindPosterView(vehicleData: VehicleData) {
-            binding.vehicleType.text = vehicleData.vehicleType
-            binding.vehiclePrice.text = vehicleData.price
-            binding.vehicleOwner.text = vehicleData.owner
-            binding.vehicleContact.text = vehicleData.contact
-            binding.vehicleLocation.text = vehicleData.location
-            binding.vehicleDescription.text = vehicleData.about
-            binding.vehicleNo.text = vehicleData.vehicleNo
-        }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):ViewHolder {
+        val itemView=LayoutInflater.from(parent.context).inflate(R.layout.item_with_poster,parent,false)
+        return ViewHolder(itemView)
     }
 
-    override fun getItemViewType(position: Int): Int {
-        return ITEM_WITH_POSTER
-    }
+    override fun onBindViewHolder(holder: DriverAdapter.ViewHolder, position: Int) {
+        val currentEmp=empList[position]
+        holder.vehicleNo.text=currentEmp.vehicleNo
+        holder.vehicleType.text=currentEmp.vehicleType
+        holder.vehicleOwner.text=currentEmp.owner
+        holder.vehiclePrice.text=currentEmp.price
+        holder.vehicleDescription.text=currentEmp.about
+        holder.vehicleContact.text=currentEmp.contact
+        holder.vehicleLocation.text=currentEmp.location
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val binding =
-            ItemWithPosterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ItemWithPosterViewHolder(binding)
+
     }
 
     override fun getItemCount(): Int {
-        return mList.size
+        return empList.size
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as ItemWithPosterViewHolder).bindPosterView(mList[position])
+    class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
+
+        val vehicleNo :TextView = itemView.findViewById(R.id.vehicleNo)
+        val vehicleType :TextView = itemView.findViewById(R.id.vehicleType)
+        val vehicleOwner:TextView = itemView.findViewById(R.id.vehicleOwner)
+        val vehiclePrice:TextView = itemView.findViewById(R.id.vehiclePrice)
+        val vehicleDescription:TextView = itemView.findViewById(R.id.vehicleDescription)
+        val vehicleContact:TextView = itemView.findViewById(R.id.vehicleContact)
+        val vehicleLocation:TextView = itemView.findViewById(R.id.vehicleLocation)
+
+
     }
 }
