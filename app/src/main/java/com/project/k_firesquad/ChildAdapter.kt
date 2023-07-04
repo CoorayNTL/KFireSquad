@@ -15,7 +15,7 @@ class ChildAdapter(private val viewType: Int, private val recyclerItemList: List
 
         fun bindBestSellerView(recyclerItem: RecyclerItem) {
             binding.bestSellerImage.setImageResource(recyclerItem.image)
-            binding.bestSellerText.text = recyclerItem.offer
+            binding.bestSellerText.text = recyclerItem.offer.
         }
     }
 
