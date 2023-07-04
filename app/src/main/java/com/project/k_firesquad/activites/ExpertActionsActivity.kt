@@ -1,9 +1,9 @@
-package com.project.k_firesquad.activities
+package com.project.k_firesquad.activites
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import com.project.k_firesquad.R
 
 class ExpertActionsActivity : AppCompatActivity() {

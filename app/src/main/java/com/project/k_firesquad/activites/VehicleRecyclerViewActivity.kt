@@ -1,101 +1,64 @@
 package com.project.k_firesquad.activites
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.*
 import com.project.k_firesquad.R
 import com.project.k_firesquad.adapter.DriverAdapter
-import com.project.k_firesquad.databinding.DriverListActivityBinding
-import com.project.k_firesquad.models.DataItem
+import com.project.k_firesquad.models.VehicleData
 
 class VehicleRecyclerViewActivity : AppCompatActivity() {
+    private lateinit var empRecyclerView: RecyclerView
 
-    private lateinit var binding: DriverListActivityBinding
-    private lateinit var mList: ArrayList<DataItem>
-
+    private lateinit var empList:ArrayList<VehicleData>
+    private lateinit var dbRef: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.driver_recycleview)
 
-        binding = DriverListActivityBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        empRecyclerView = findViewById(R.id.recycleView)
+        empRecyclerView.layoutManager = LinearLayoutManager(this)
+        empRecyclerView.setHasFixedSize(true)
 
-        binding.recycleView.setHasFixedSize(true)
-        binding.recycleView.layoutManager = LinearLayoutManager(this)
+        empList = arrayListOf<VehicleData>()
 
-        mList = ArrayList()
-        prepareData()
+        getEmployeeData()
 
 
-        val adapter = DriverAdapter(mList)
-        binding.recycleView.adapter = adapter
+
+
 
     }
 
-    private fun prepareData() {
-        mList.add(
-            DataItem(
-                R.drawable.truck1,
-                "TN 01 2345",
-                "2-Axl-Lorry",
-                "ABC Company",
-                10000,
-                "We provide professional moving services for residential and commercial customers",
-                "9876543210",
-                "Chennai"
-            )
-        )
+    private fun getEmployeeData() {
 
-        mList.add(
-            DataItem(
-                R.drawable.truck2,
-                "TN 01 2345",
-                "2-Axl-Lorry",
-                "ABC Company",
-                10000,
-                "We provide professional moving services for residential and commercial customers",
-                "9876543210",
-                "Chennai"
-            )
-        )
+        empRecyclerView.visibility= View.GONE
 
-        mList.add(
-            DataItem(
-                R.drawable.truck3,
-                "TN 01 2345",
-                "2-Axl-Lorry",
-                "ABC Company",
-                10000,
-                "We provide professional moving services for residential and commercial customers",
-                "9876543210",
-                "Chennai"
-            )
-        )
+        dbRef = FirebaseDatabase.getInstance().getReference("Vehicles")
 
-        mList.add(
-            DataItem(
-                R.drawable.truck4,
-                "TN 01 2345",
-                "2-Axl-Lorry",
-                "ABC Company",
-                10000,
-                "We provide professional moving services for residential and commercial customers",
-                "9876543210",
-                "Chennai"
-            )
-        )
+        dbRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                empList.clear()
+                if(snapshot.exists()){
+                    for (empSnap in snapshot.children){
+                        val emp = empSnap.getValue(VehicleData::class.java)
+                        empList.add(emp!!)
+                    }
 
-        mList.add(
-            DataItem(
-                R.drawable.truck5,
-                "TN 01 2345",
-                "2-Axl-Lorry",
-                "ABC Company",
-                10000,
-                "We provide professional moving services for residential and commercial customers",
-                "9876543210",
-                "Chennai"
-            )
-        )
+                    val mAdapter = DriverAdapter(empList)
+                    empRecyclerView.adapter = mAdapter
+                    empRecyclerView.visibility= View.VISIBLE
+
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO()
+            }
+        })
     }
 }

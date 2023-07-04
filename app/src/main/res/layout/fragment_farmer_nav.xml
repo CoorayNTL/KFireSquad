@@ -187,7 +187,7 @@
             android:layout_marginTop="150dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="24dp"
-            app:srcCompat="@drawable/address" />
+            app:srcCompat="@drawable/baseline_add_box_24" />
 
         <TextView
             android:id="@+id/txtAddress"

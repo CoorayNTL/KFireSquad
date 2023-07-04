@@ -2,20 +2,16 @@ package com.project.k_firesquad
 
 import android.content.Intent
 import android.widget.TextView
-
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.project.k_firesquad.activities.ExpertsProfileActivity
-import com.project.k_firesquad.activities.MainActivity
-import org.junit.Assert.assertEquals
+import com.project.k_firesquad.activites.ExpertsProfileActivity
+import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
-
-import org.junit.Assert.*
 
 @RunWith(AndroidJUnit4::class)
 class MyPostsInstrumentedTest {

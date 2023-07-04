@@ -108,6 +108,32 @@
         <activity
             android:name=".activites.VehicleRecyclerViewActivity"
             android:exported="false"/>
+
+
+
+        <activity
+            android:name=".activites.MyPostsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.ExpertActionsActivity"
+            android:exported="false"></activity>
+        <activity android:name=".activites.MyPostDetailsActivity"
+            android:exported="false"
+            >
+
+        </activity>
+        <activity
+            android:name=".activites.AddPostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.MainActivity"
+            android:exported="false">
+
+        </activity>
+
+
+
+
     </application>
 
 </manifest>

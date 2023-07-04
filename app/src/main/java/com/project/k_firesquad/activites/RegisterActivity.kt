@@ -13,13 +13,12 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.NotificationCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.project.k_firesquad.utlies.LoginPageActivity
 import com.project.k_firesquad.R
 import com.project.k_firesquad.models.CompanyData
+import com.project.k_firesquad.utlies.LoginPageActivity
 
 class RegisterActivity: AppCompatActivity() {
 
@@ -89,7 +88,7 @@ class RegisterActivity: AppCompatActivity() {
             name.error = "Please enter your name"
             return
         }
-        if(cmpemail.isEmpty()){
+        if(!android.util.Patterns.EMAIL_ADDRESS.matcher(cmpemail).matches()){
             email.error = "Please enter your email"
             return
         }

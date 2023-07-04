@@ -1,7 +1,7 @@
-package com.project.k_firesquad.activities
+package com.project.k_firesquad.activites
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.project.k_firesquad.R
 
 class MainActivity : AppCompatActivity() {

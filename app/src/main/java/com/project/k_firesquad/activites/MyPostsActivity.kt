@@ -1,15 +1,15 @@
-package com.project.k_firesquad.activities
+package com.project.k_firesquad.activites
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import com.project.k_firesquad.R
-import com.project.k_firesquad.adapters.MyPostsAdapter
+import com.project.k_firesquad.adapter.MyPostsAdapter
 import com.project.k_firesquad.models.ExpertsPostModel
 
 class MyPostsActivity : AppCompatActivity() {

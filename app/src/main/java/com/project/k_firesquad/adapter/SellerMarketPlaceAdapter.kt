@@ -16,6 +16,7 @@ class SellerMarketPlaceAdapter (private var sellerMarketPlaceList: ArrayList<Sel
         fun onItemClick(position: Int)
     }
 
+    //search seller
     fun setFilteredList(mList: ArrayList<SellerProduct>){
         this.sellerMarketPlaceList = mList
         notifyDataSetChanged()

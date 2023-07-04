@@ -128,6 +128,7 @@ class DriverActivityProfile : AppCompatActivity() {
 
     }
 
+    // Delete the user's record from the database
     private fun deleteRecord() {
         val dbRef = FirebaseDatabase.getInstance().getReference("Users")
         val userId = FirebaseAuth.getInstance().currentUser!!.uid

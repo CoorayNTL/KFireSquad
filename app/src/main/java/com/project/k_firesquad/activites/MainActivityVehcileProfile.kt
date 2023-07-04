@@ -1,11 +1,11 @@
 package com.project.k_firesquad.activites
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.project.k_firesquad.R
@@ -24,7 +24,8 @@ class MainActivityVehcileProfile : AppCompatActivity() {
     
     private lateinit var btnUpdateVehicle: Button
     private lateinit var btnDeleteVehicle: Button
-    
+    private lateinit var btnBacktoprofile: Button
+
     private lateinit var databaseReference: DatabaseReference
     
     
@@ -36,6 +37,8 @@ class MainActivityVehcileProfile : AppCompatActivity() {
         
         btnUpdateVehicle = findViewById(R.id.btnUpdateProfile)
         btnDeleteVehicle = findViewById(R.id.btnDeleteAccount)
+        btnBacktoprofile= findViewById(R.id.btnBacktoprofile)
+
         
         
         btnUpdateVehicle.setOnClickListener {
@@ -45,6 +48,11 @@ class MainActivityVehcileProfile : AppCompatActivity() {
         
         btnDeleteVehicle.setOnClickListener {
             deleteRecord(intent.getStringExtra("vehicleId").toString())
+        }
+
+        btnBacktoprofile.setOnClickListener{
+            val intent = Intent(this, DriverActivityProfile::class.java)
+            startActivity(intent)
         }
 
 
@@ -85,11 +93,11 @@ class MainActivityVehcileProfile : AppCompatActivity() {
                         if (userKey != null) {
                             dbRef.child(userKey).removeValue().addOnSuccessListener {
                                 Toast.makeText(this@MainActivityVehcileProfile, "Account Deleted Successfully", Toast.LENGTH_SHORT).show()
-                                FirebaseAuth.getInstance().signOut()
-                                val intent = Intent(this@MainActivityVehcileProfile,
-                                    DriverActivityProfile::class.java)
-                                startActivity(intent)
-                                finish()
+//                                FirebaseAuth.getInstance().signOut()
+//                                val intent = Intent(this@MainActivityVehcileProfile,
+//                                    DriverActivityProfile::class.java)
+//                                startActivity(intent)
+//                                finish()
                             }.addOnFailureListener {
                                 Toast.makeText(this@MainActivityVehcileProfile, "Error Occurred", Toast.LENGTH_SHORT).show()
                             }

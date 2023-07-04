@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MyPostDetailsActivity">
+    tools:context=".activites.MyPostDetailsActivity">
 
     <Button
         android:id="@+id/btnEditPost"
@@ -197,20 +197,20 @@
         app:layout_constraintVertical_bias="0.053"
         app:srcCompat="@drawable/indianfarmer" />
 
+
     <CheckBox
         android:id="@+id/like"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:button="@drawable/selector_whishlist_item"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:onClick="incrementValue"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.212"
+        app:layout_constraintHorizontal_bias="0.201"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.441"
+        app:layout_constraintVertical_bias="0.424"
         app:useMaterialThemeColors="false" />
-
 
     <TextView
         android:id="@+id/textView"
@@ -222,7 +222,7 @@
         app:layout_constraintHorizontal_bias="0.28"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.441" />
+        app:layout_constraintVertical_bias="0.432" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
