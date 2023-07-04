@@ -1,5 +1,11 @@
 package com.project.k_firesquad.activites
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import androidx.core.app.NotificationCompat
+import android.app.PendingIntent
+import android.graphics.Color
+import android.os.Build
 import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -31,6 +37,12 @@ class BuyerUpdateProductActivity : AppCompatActivity() {
     private lateinit var updateButton: Button
     private lateinit var calendar: Calendar
 
+    private lateinit var notificationManager: NotificationManager
+    private lateinit var notificationChannel: NotificationChannel
+    private lateinit var builder: NotificationCompat.Builder
+    private val channelId = "my_channel_01"
+    private val description = "Test notification"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_buyer_update_product)
@@ -59,8 +71,22 @@ class BuyerUpdateProductActivity : AppCompatActivity() {
         //set onclick listener to update button
         updateButton.setOnClickListener {
             updateEmpData()
-            buyerProductsRecyclerView.adapter?.notifyDataSetChanged()
 
+        }
+
+
+        notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            notificationChannel = NotificationChannel(
+                channelId,
+                description,
+                NotificationManager.IMPORTANCE_HIGH
+            )
+            notificationChannel.enableLights(true)
+            notificationChannel.lightColor = Color.GREEN
+            notificationChannel.enableVibration(false)
+            notificationManager.createNotificationChannel(notificationChannel)
         }
 
     }
@@ -95,6 +121,30 @@ class BuyerUpdateProductActivity : AppCompatActivity() {
 
 
         }
+
+
+    private fun showNotification() {
+        val intent = Intent(this,BuyerProfileActivity::class.java)
+        val pendingIntent = PendingIntent.getActivity(
+            this,
+            0,
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            builder=NotificationCompat.Builder(this,channelId)
+
+                .setContentTitle("AGRO")
+                .setContentText("Product Updated Successfully")
+                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
+        }
+
+        notificationManager.notify(1234, builder.build())
+    }
+
 
 
     //initializing fields
@@ -154,5 +204,6 @@ class BuyerUpdateProductActivity : AppCompatActivity() {
             )
         }?.setValue(empInfo)
         Toast.makeText(applicationContext, "Product Data Updated", Toast.LENGTH_SHORT).show()
+        showNotification()
     }
 }

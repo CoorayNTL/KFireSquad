@@ -8,12 +8,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.project.k_firesquad.R
 import com.project.k_firesquad.models.BuyerProduct
 
-class BuyerMarketPlaceAdapter (private val buyerMarketPlaceList: ArrayList<BuyerProduct>) : RecyclerView.Adapter<BuyerMarketPlaceAdapter.ViewHolder>() {
+class BuyerMarketPlaceAdapter (private var buyerMarketPlaceList: ArrayList<BuyerProduct>) : RecyclerView.Adapter<BuyerMarketPlaceAdapter.ViewHolder>() {
 
     private lateinit var mListener: onItemClickListener
 
     interface onItemClickListener{
         fun onItemClick(position: Int)
+    }
+
+    fun setFilteredList(mList: ArrayList<BuyerProduct>){
+        this.buyerMarketPlaceList = mList
+        notifyDataSetChanged()
     }
 
     fun setOnItemClickListener(clickListener: onItemClickListener){

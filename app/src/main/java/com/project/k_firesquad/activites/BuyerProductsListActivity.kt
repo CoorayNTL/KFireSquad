@@ -5,21 +5,26 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import com.project.k_firesquad.R
-import com.project.k_firesquad.adapter.BuyerMarketPlaceAdapter
+import com.project.k_firesquad.adapter.BuyerProductListAdapter
 import com.project.k_firesquad.models.BuyerProduct
+import java.util.*
+import kotlin.collections.ArrayList
 
 class BuyerProductsListActivity : AppCompatActivity() {
 
     //variables
     private lateinit var buyerProductsRecyclerView: RecyclerView
     private lateinit var tvLoadingData: TextView
-    private lateinit var buyerProductsList: ArrayList<BuyerProduct>
+    private var buyerProductsList= ArrayList<BuyerProduct>()
     private lateinit var dbRef: DatabaseReference
-
+    private lateinit var searchView: SearchView
+    private lateinit var mAdapter: BuyerProductListAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_buyer_products_list)
@@ -27,16 +32,49 @@ class BuyerProductsListActivity : AppCompatActivity() {
 
         //initialize variables
         buyerProductsRecyclerView = findViewById(R.id.rvEmp)
+        searchView = findViewById(R.id.searchView)
+        mAdapter = BuyerProductListAdapter(buyerProductsList)
         buyerProductsRecyclerView.layoutManager = LinearLayoutManager(this)
         buyerProductsRecyclerView.setHasFixedSize(true)
         tvLoadingData = findViewById(R.id.tvLoadingData)
+
 
         buyerProductsList = arrayListOf<BuyerProduct>()
 
         //call the getBuyerProductsData()
         getBuyerProductsData()
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filterList(newText)
+                return true
+            }
+
+        })
 
     }
+
+    private fun filterList(query: String?){
+        if(query != null){
+            val filteredList = ArrayList<BuyerProduct>()
+            for(i in buyerProductsList){
+                if (i.productName?.lowercase(Locale.ROOT)?.contains(query) == true){
+                    filteredList.add(i)
+                }
+            }
+
+            if(filteredList.isEmpty()){
+                Toast.makeText(this, "No Data Found", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                mAdapter.setFilteredList(filteredList)
+            }
+        }
+    }
+
 
     //get product details of the buyer
     private fun getBuyerProductsData() {
@@ -55,10 +93,10 @@ class BuyerProductsListActivity : AppCompatActivity() {
                         val buyerProduct = buyerProductSnap.getValue(BuyerProduct::class.java)
                         buyerProductsList.add(buyerProduct!!)
                     }
-                    val mAdapter = BuyerMarketPlaceAdapter(buyerProductsList)
-                    buyerProductsRecyclerView.adapter = mAdapter
 
-                    mAdapter.setOnItemClickListener(object : BuyerMarketPlaceAdapter.onItemClickListener{
+                    mAdapter = BuyerProductListAdapter(buyerProductsList)
+                    buyerProductsRecyclerView.adapter = mAdapter
+                    mAdapter.setOnItemClickListener(object : BuyerProductListAdapter.onItemClickListener{
                         override fun onItemClick(position: Int) {
 
                             val intent = Intent(this@BuyerProductsListActivity, BuyerProductViewActivity::class.java)

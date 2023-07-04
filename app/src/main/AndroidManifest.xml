@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,6 +12,40 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KFireSquad"
         tools:targetApi="31">
+        <activity
+            android:name=".activites.SellerProductRequestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activites.SellerMarketPlaceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.SellerUpdateProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.SellerProductViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.SellerProductsListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.SellerAddProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.SellerProfileActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".activites.SellerDetailsActivity"
+            android:exported="false" />
         <activity
             android:name=".activites.BuyerProductRequestActivity"
             android:exported="false" />
@@ -31,16 +66,73 @@
             android:exported="false" />
         <activity
             android:name=".activites.BuyerProfileActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activites.BuyerDetailsActivity"
+            android:exported="false"/>
+
+
+
+
+
+        <activity
+            android:name=".activites.MainActivityVehcileProfile"
             android:exported="false" />
+        <activity
+            android:name=".activites.FetchingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.DriverActivityProfile"
+            android:exported="false"
+
+            >
+>
+        </activity>
+
+        <activity
+            android:name=".activites.profileUpdateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.addVehicleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".utlies.LoginPageActivity"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".activites.VehicleRecyclerViewActivity"
+            android:exported="false"/>
+
+
+
+        <activity
+            android:name=".activites.MyPostsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.ExpertActionsActivity"
+            android:exported="false"></activity>
+        <activity android:name=".activites.MyPostDetailsActivity"
+            android:exported="false"
+            >
+
+        </activity>
+        <activity
+            android:name=".activites.AddPostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.MainActivity"
+            android:exported="false">
+
+        </activity>
+
+
+
 
     </application>
 

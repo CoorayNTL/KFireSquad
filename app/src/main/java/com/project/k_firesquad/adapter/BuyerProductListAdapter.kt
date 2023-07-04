@@ -10,9 +10,14 @@ import com.project.k_firesquad.R
 import com.project.k_firesquad.models.BuyerProduct
 import org.w3c.dom.Text
 
-class BuyerProductListAdapter (private val buyerProductsList: ArrayList<BuyerProduct>) : RecyclerView.Adapter<BuyerProductListAdapter.ViewHolder>() {
+class BuyerProductListAdapter (private var buyerProductsList: ArrayList<BuyerProduct>) : RecyclerView.Adapter<BuyerProductListAdapter.ViewHolder>() {
 
     private lateinit var mListener: onItemClickListener
+
+    fun setFilteredList(mList: ArrayList<BuyerProduct>){
+        this.buyerProductsList = mList
+        notifyDataSetChanged()
+    }
 
     interface onItemClickListener{
         fun onItemClick(position: Int)

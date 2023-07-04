@@ -1,10 +1,15 @@
 package com.project.k_firesquad.activites
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import androidx.core.app.NotificationCompat
+import android.app.PendingIntent
+import android.graphics.Color
+import android.os.Build
 import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
@@ -29,6 +34,12 @@ class BuyerAddProductActivity : AppCompatActivity() {
     //    private lateinit var btnUploadImage: Button
     private lateinit var submitButton: Button
     private lateinit var calendar: Calendar
+
+    private lateinit var notificationManager: NotificationManager
+    private lateinit var notificationChannel: NotificationChannel
+    private lateinit var builder: NotificationCompat.Builder
+    private val channelId = "my_channel_01"
+    private val description = "Test notification"
 
     private lateinit var dbRef: DatabaseReference
 
@@ -60,6 +71,20 @@ class BuyerAddProductActivity : AppCompatActivity() {
                 calendar.get(Calendar.MONTH),
                 calendar.get(Calendar.DAY_OF_MONTH)
             ).show()
+        }
+
+        notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            notificationChannel = NotificationChannel(
+                channelId,
+                description,
+                NotificationManager.IMPORTANCE_HIGH
+            )
+            notificationChannel.enableLights(true)
+            notificationChannel.lightColor = Color.GREEN
+            notificationChannel.enableVibration(false)
+            notificationManager.createNotificationChannel(notificationChannel)
         }
     }
 
@@ -93,6 +118,28 @@ class BuyerAddProductActivity : AppCompatActivity() {
 
 
         }
+
+    private fun showNotification() {
+        val intent = Intent(this,BuyerProfileActivity::class.java)
+        val pendingIntent = PendingIntent.getActivity(
+            this,
+            0,
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            builder=NotificationCompat.Builder(this,channelId)
+
+                .setContentTitle("AGRO")
+                .setContentText("Product Added Successfully")
+                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
+        }
+
+        notificationManager.notify(1234, builder.build())
+    }
 
     //initialize input fields
     private fun initializeFields()  {
@@ -167,6 +214,7 @@ class BuyerAddProductActivity : AppCompatActivity() {
         dbRef.child(buyerProductID).setValue(buyerProduct).addOnCompleteListener {
             Toast.makeText(this, "Added Product", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, BuyerProfileActivity::class.java)
+            showNotification()
             startActivity(intent)
         }.addOnFailureListener {error ->
             Toast.makeText(this, "${error.message}", Toast.LENGTH_SHORT).show()
@@ -174,7 +222,6 @@ class BuyerAddProductActivity : AppCompatActivity() {
 
 
 
-//        return "$productName $productQty $productRate $description $sellerName $sellerLocation $offerStartDate $offerEndDate"
     }
 
 }

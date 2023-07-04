@@ -1,4 +1,4 @@
-//package com.project.k_firesquad.adapter
+package com.project.k_firesquad.adapter//package com.project.k_firesquad.adapter
 //
 //import android.view.LayoutInflater
 //import android.view.View

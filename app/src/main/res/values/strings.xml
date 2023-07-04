@@ -1,11 +1,16 @@
 <resources>
     <string name="app_name">K-Fire Squad</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="delver">Delver</string>
+    <string name="agroexpert">AgroExpert</string>
+    <string name="buyer">Buyer</string>
+    <string name="farmer">Farmer</string>
     <string name="cotton">Cotton</string>
     <string name="rate">Rate</string>
     <string name="more_details">More-Details</string>
     <string name="rs_450_0_1kg">Rs.450.0/1Kg</string>
     <string name="_0712347890">0712347890</string>
-    <string name="location">Location</string>
+    <string name="contact">Contact</string>
     <string name="_300_kg">300 Kg</string>
     <string name="quantity">Quantity</string>
     <string name="todo">TODO</string>
@@ -18,9 +23,45 @@
     <string name="rs_8500_kg">Rs.8500/ Kg</string>
     <string name="soyabean">Soyabean</string>
     <string name="buy_now">Rquest Now</string>
-    <string name="buyer_details_activity_title"></string>
+    <string name="Seller_details_activity_title"></string>
     <string name="tab_1">Tab 1</string>
     <string name="tab_2">Tab 2</string>
     <string name="tab_3">Tab 3</string>
-    <string name="required">Required</string>
+    <string name="tab_layout_description">This is a tab layout with several tabs to switch between different views</string>
+    <string name="tab_item_1" />
+    <string name="tab_item_2" />
+    <string name="this_is_a_tab_layout_with_several_tabs_to_switch_between_different_views">This is a tab layout with several tabs to switch between different views</string>
+    <string name="required" />
+    <string name="location" />
+    <string name="buyer_details_activity_title"></string>
+    <string name="seller_details_activity_title" />
+
+
+
+
+    <string name="vehicle_no">Vehicle No:</string>
+    <string name="car_1234">CAR-1234</string>
+    <string name="_2_axl_lorry">2-Axl-Lorry</string>
+    <string name="company">Company:</string>
+    <string name="abc_company">ABC Company</string>
+    <string name="price_per_1_km">Price: (per 1 Km)</string>
+    <string name="rs_1000">Rs. 1000</string>
+    <string name="description">Description:</string>
+    <string name="this_lorry_can_handle_max_weight_of_5000kg">This lorry can handle max weight of 5000Kg</string>
+
+    <string name="colombo">Colombo</string>
+    <string name="sign_up">Sign Up</string>
+
+    <string name="profile">Profile</string>
+    <string name="address">Address</string>
+    <string name="contact2">contact</string>
+    <string name="email">email</string>
+    <string name="comapny_name">comapny name</string>
+    <string name="username">username</string>
+    <string name="username1">Username :</string>
+    <string name="company_name">Company Name:</string>
+    <string name="email1">Email :</string>
+    <string name="contact_no">Contact No :</string>
+    <string name="address1">Address :</string>
+
 </resources>

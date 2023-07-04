@@ -1,11 +1,18 @@
 package com.project.k_firesquad.activites
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import androidx.core.app.NotificationCompat
+import android.app.PendingIntent
+import android.graphics.Color
+import android.os.Build
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.google.firebase.database.FirebaseDatabase
 import com.project.k_firesquad.R
 
@@ -23,6 +30,11 @@ class BuyerProductViewActivity : AppCompatActivity() {
     private lateinit var btnUpdate: Button
     private lateinit var btnDelete: Button
 
+    private lateinit var notificationManager: NotificationManager
+    private lateinit var notificationChannel: NotificationChannel
+    private lateinit var builder: NotificationCompat.Builder
+    private val channelId = "my_channel_01"
+    private val description = "Test notification"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +67,47 @@ class BuyerProductViewActivity : AppCompatActivity() {
             deleteRecord(intent.getStringExtra("buyerProductID").toString())
         }
 
+
+
+        notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            notificationChannel = NotificationChannel(
+                channelId,
+                description,
+                NotificationManager.IMPORTANCE_HIGH
+            )
+            notificationChannel.enableLights(true)
+            notificationChannel.lightColor = Color.GREEN
+            notificationChannel.enableVibration(false)
+            notificationManager.createNotificationChannel(notificationChannel)
+        }
+
     }
+
+
+    private fun showNotification() {
+        val intent = Intent(this,BuyerProfileActivity::class.java)
+        val pendingIntent = PendingIntent.getActivity(
+            this,
+            0,
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            builder=NotificationCompat.Builder(this,channelId)
+
+                .setContentTitle("AGRO")
+                .setContentText("Product Deleted Successfully")
+                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
+        }
+
+        notificationManager.notify(1234, builder.build())
+    }
+
 
     //initialize the view
     private fun initView() {
@@ -89,14 +141,25 @@ class BuyerProductViewActivity : AppCompatActivity() {
         val dbRef = FirebaseDatabase.getInstance().getReference("BuyerProducts").child(productID)
         val mTask = dbRef.removeValue()
 
-        mTask.addOnSuccessListener {
-            Toast.makeText(this, "Product  Deleted", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, BuyerProfileActivity::class.java)
-            finish()
-            startActivity(intent)
-        }.addOnFailureListener { error ->
-            Toast.makeText(this, "${error.message}", Toast.LENGTH_SHORT).show()
+        val builder= AlertDialog.Builder(this)
+        builder.setTitle("Warning")
+        builder.setMessage("Delete Product ?\n\nThis action cannot be undone")
+
+        builder.setPositiveButton("OK"){dialog, which ->
+            mTask.addOnSuccessListener {
+                Toast.makeText(this, "Product Deleted Successfully", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, BuyerProfileActivity::class.java)
+                finish()
+                showNotification()
+                startActivity(intent)
+            }.addOnFailureListener { error ->
+                Toast.makeText(this, "${error.message}", Toast.LENGTH_SHORT).show()
+            }
         }
+        val dialog=builder.create()
+        dialog.show()
+
+
     }
 
 }
